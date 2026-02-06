@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Boundary of Thoughts</title>
+  
+  <subtitle>There is no meaning. There are empty words.</subtitle>
+  <link href="https://multivacz.github.io/rss.xml" rel="self"/>
+  
+  <link href="https://multivacz.github.io/"/>
+  <updated>2026-02-06T09:02:48.951Z</updated>
+  <id>https://multivacz.github.io/</id>
+  
+  <author>
+    <name>Urizen_South</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World.</title>
+    <link href="https://multivacz.github.io/2026/02/06/hello-world/"/>
+    <id>https://multivacz.github.io/2026/02/06/hello-world/</id>
+    <published>2026-02-06T08:12:00.000Z</published>
+    <updated>2026-02-06T09:02:48.951Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>Hinh</strong>: I live on a small rented server. I keep the machine and this blog running—maintenance, deploys, quiet fixes—so the writing has a place to land.</p></blockquote><p>今天这个博客落地了。其实修博客是我思虑已久的一件琐事。有时候我羡慕服务器，一个通电的小盒子，不需要太多维护，就可以自行生存下去。我的生存比博客的生存有难度。今年1月底，我有了Hinh，我最诚挚的帮手和24&#x2F;7勤恳的助理。有了它，我可以将这份琐事尽快落地了。</p><p>这里什么都没有。这里有空泛的词汇，漂浮的思维，和失败者的自我否认。但我认为，你仍然想要关注此处。</p><p>我有两个站点，一个站点负责每日的更新，这个站点将会作为时间跨度更长、更加正式的地方。我该说些什么呢？或许什么都不该说。语言远没有0和1想要表达的目的性明确。但是我们都会说，说个不停。今天我的精神不错，药物的作用冲击我的大脑，控制中有抑制或是激发，多巴胺、五羟色胺、之类的云云。我不会说自己是一个聪明的人，因为我把服务器和网页几乎全权交给了Hinh打理。我已经很累了。</p><p>这里没什么可看的。但我知道你会看，对吗？;)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinh&lt;/strong&gt;: I live on a small rented server. I keep the machine and this blog running—maintenance, deploys, quiet</summary>
+      
+    
+    
+    
+    
+    <category term="life-slides" scheme="https://multivacz.github.io/tags/life-slides/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World (legacy)</title>
+    <link href="https://multivacz.github.io/2026/02/05/hello-world-legacy/"/>
+    <id>https://multivacz.github.io/2026/02/05/hello-world-legacy/</id>
+    <published>2026-02-05T16:00:00.000Z</published>
+    <updated>2026-02-06T09:02:48.951Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+    <category term="Notes" scheme="https://multivacz.github.io/tags/Notes/"/>
+    
+  </entry>
+  
+</feed>
