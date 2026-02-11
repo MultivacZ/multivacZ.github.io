@@ -24,10 +24,11 @@
       content:"";
       position:absolute; inset:0;
       background-image:
-        radial-gradient(rgba(34,197,94,.22) 1px, transparent 1px),
-        radial-gradient(rgba(245,158,11,.18) 1px, transparent 1px);
-      background-size: 180px 180px, 240px 240px;
-      opacity:.22;
+        radial-gradient(rgba(34,197,94,.24) 1px, transparent 1px),
+        radial-gradient(rgba(245,158,11,.20) 1px, transparent 1px),
+        radial-gradient(rgba(34,197,94,.12) 1px, transparent 1px);
+      background-size: 140px 140px, 200px 200px, 260px 260px;
+      opacity:.32;
       mix-blend-mode: screen;
       animation: homeDots 28s linear infinite;
     }
@@ -47,12 +48,23 @@
       border-radius: 18px;
       background: rgba(0,0,0,.18);
       box-shadow: 0 1px 0 rgba(255,255,255,.03);
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      overflow: hidden; /* keep excerpt inside rounded corners */
+      transform: translateZ(0);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
     }
     .homeFeedCard:hover{
-      transform: translateY(-1px);
-      border-color: rgba(110,231,255,.18);
+      transform: translateY(-2px);
+      border-color: rgba(110,231,255,.22);
       background: rgba(0,0,0,.22);
+      box-shadow: 0 0 0 1px rgba(110,231,255,.10), 0 18px 60px rgba(0,0,0,.35);
+    }
+
+    /* Center the preview paragraph a bit on desktop, but keep it readable */
+    .homeFeedCard .post-excerpt{
+      max-width: 62ch;
+    }
+    @media (min-width: 1024px){
+      .homeFeedCard .post-excerpt{ margin-left: auto; margin-right: auto; }
     }
 
     .homeContent{ position: relative; z-index: 1; }
@@ -257,7 +269,7 @@
 
   </div>
   
-  <main class="w-screen min-h-screen container mx-auto homeContent">
+  <main class="w-screen min-h-screen container mx-auto homeContent" style="padding-left: 16px; padding-right: 16px;">
     <!-- 欢迎页面 -->
     <div class="min-h-screen bg-black text-center flex flex-col justify-center items-center h-screen">
         <h1 class="
