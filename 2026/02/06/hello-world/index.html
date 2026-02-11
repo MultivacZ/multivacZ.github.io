@@ -18,13 +18,13 @@
 
     /* Mixed-font stack: try common Song fonts first, fall back safely */
     #article-content, #article-content p, #article-content li, #article-content blockquote{
-        font-family: "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
     }
 
     /* Slightly tighten headings so they feel like a book page */
     #article-content h1, #article-content h2, #article-content h3,
     #article-content h4, #article-content h5, #article-content h6{
-        font-family: "Times New Roman", Times, "Songti SC", "STSong", "SimSun", serif;
+        font-family: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
         letter-spacing: 0.2px;
         margin-top: 1.4em !important;
         margin-bottom: 0.6em !important;
@@ -64,6 +64,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 
+    <!-- Webfont: guarantee serif Chinese everywhere (Songti-style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/tailwind.css">
     <link rel="stylesheet" href="/css/highlight.css">
