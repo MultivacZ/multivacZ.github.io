@@ -86,6 +86,12 @@
       backdrop-filter: blur(10px);
     }
 
+    /* links cards: make them feel like rounded paper pieces */
+    .linkCard{
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
     .card{
       box-shadow:
         0 1px 0 rgba(11, 18, 32, 0.08),
@@ -217,7 +223,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
         
-          <article class="paper card rounded-3xl p-5">
+          <article class="paper card linkCard p-5">
             <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
               <a class="linkA" href="http://49.51.36.229/" target="_blank" rel="noopener">Boundary of Thought</a>
             </h2>
