@@ -9,13 +9,15 @@
   <!-- <link rel="stylesheet" href="/css/search.css"> -->
   <style>
     /* Home page atmosphere: gentle Matrix-ish particles (gold + green). */
-    .homeFx{ position: fixed; inset: -20vh -20vw; pointer-events:none; z-index:0; }
+    .homeFx{ position: fixed; inset: 0; pointer-events:none; z-index:0; }
     .homeFx::before{
       content:"";
       position:absolute; inset:0;
       background:
         radial-gradient(900px 520px at 22% 18%, rgba(34,197,94,.10), transparent 62%),
-        radial-gradient(820px 520px at 82% 22%, rgba(245,158,11,.08), transparent 64%);
+        radial-gradient(820px 520px at 82% 22%, rgba(245,158,11,.08), transparent 64%),
+        radial-gradient(900px 520px at 30% 78%, rgba(34,197,94,.07), transparent 64%),
+        radial-gradient(820px 520px at 78% 76%, rgba(245,158,11,.07), transparent 66%);
       filter: blur(16px);
       opacity:.75;
       animation: homeDrift 22s ease-in-out infinite;
