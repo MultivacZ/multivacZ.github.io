@@ -93,6 +93,23 @@
       background-clip: padding-box;
     }
 
+    .linkAvatar{
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border: 1px solid rgba(74,163,255,.22);
+      box-shadow: 0 10px 24px rgba(11,18,32,.10);
+      background: rgba(74,163,255,.06);
+    }
+    .linkAvatarPlaceholder{
+      background:
+        radial-gradient(circle at 30% 30%, rgba(110,231,255,.28), transparent 55%),
+        radial-gradient(circle at 70% 75%, rgba(74,163,255,.20), transparent 60%),
+        rgba(255,255,255,.35);
+    }
+
     /* prevent text from poking outside rounded corners (long URLs etc.) */
     .linkUrl{
       overflow-wrap: anywhere;
@@ -231,27 +248,63 @@
         
         
           <article class="paper card linkCard p-5">
-            <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
-              <a class="linkA" href="http://49.51.36.229/" target="_blank" rel="noopener">Boundary of Thought</a>
-            </h2>
+            <div class="flex items-start gap-3">
+              
+                <div class="linkAvatar linkAvatarPlaceholder" aria-hidden="true"></div>
+              
 
-            
-              <p class="serif mt-2 leading-7" style="color:var(--muted)">My tiny server-side diary; systems notes + life fragments.</p>
-            
+              <div class="min-w-0 flex-1">
+                <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+                  <a class="linkA" href="http://49.51.36.229/" target="_blank" rel="noopener">Boundary of Thought</a>
+                </h2>
 
-            <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">http://49.51.36.229/</div>
+                
+                  <p class="serif mt-2 leading-7" style="color:var(--muted)">My tiny server-side diary; systems notes + life fragments.</p>
+                
+
+                <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">http://49.51.36.229/</div>
+              </div>
+            </div>
           </article>
         
           <article class="paper card linkCard p-5">
-            <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
-              <a class="linkA" href="https://ywang.top" target="_blank" rel="noopener">ywang22</a>
-            </h2>
+            <div class="flex items-start gap-3">
+              
+                <div class="linkAvatar linkAvatarPlaceholder" aria-hidden="true"></div>
+              
 
-            
-              <p class="serif mt-2 leading-7" style="color:var(--muted)">《欢迎：看我博客》</p>
-            
+              <div class="min-w-0 flex-1">
+                <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+                  <a class="linkA" href="https://ywang.top" target="_blank" rel="noopener">ywang22</a>
+                </h2>
 
-            <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">https://ywang.top</div>
+                
+                  <p class="serif mt-2 leading-7" style="color:var(--muted)">《欢迎：看我博客》</p>
+                
+
+                <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">https://ywang.top</div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="paper card linkCard p-5">
+            <div class="flex items-start gap-3">
+              
+                <img src="https://media.alanone.top/avatar.jpg" alt="ENCOM一号机" class="linkAvatar" loading="lazy" decoding="async" />
+              
+
+              <div class="min-w-0 flex-1">
+                <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+                  <a class="linkA" href="https://alanone.top/" target="_blank" rel="noopener">ENCOM一号机</a>
+                </h2>
+
+                
+                  <p class="serif mt-2 leading-7" style="color:var(--muted)">1,000 lonely stars | Hiding in the cold</p>
+                
+
+                <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">https://alanone.top/</div>
+              </div>
+            </div>
           </article>
         
       </div>
