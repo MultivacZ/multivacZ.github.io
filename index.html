@@ -19,40 +19,59 @@
       .homeShell{ max-width: 1180px; }
     }
 
-    /* Home typography: less "formal" than Times; CN uses a clean sans, EN uses a soft serif */
-    .homeTitle{ font-family: "Avenir Next", Avenir, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
-    .homeBody{ font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC", "STSong", serif; }
+    /* Home typography: modern, not too formal. */
+    .homeTitle{ font-family: "Avenir Next", Avenir, "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    .homeBody{ font-family: "Charter", "Georgia", "Iowan Old Style", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    .homePostTitle{ font-family: "Avenir Next", Avenir, "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    .homePostMeta{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; letter-spacing: .2px; }
+    .homePostExcerpt{ font-family: "Charter", "Georgia", "Iowan Old Style", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
 
-    /* Background particles (CSS-only): blue/green/gold, gentle drift */
+    /* Background particles (CSS-only): Matrix-ish, but gentle (gold + green). */
     .bgParticles{
       position: fixed;
       inset: -20vh -20vw;
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(900px 520px at 12% 8%, rgba(74,163,255,.16), transparent 60%),
-        radial-gradient(820px 520px at 90% 12%, rgba(110,231,255,.12), transparent 62%),
-        radial-gradient(820px 520px at 25% 92%, rgba(34,197,94,.10), transparent 60%),
-        radial-gradient(820px 520px at 78% 88%, rgba(245,158,11,.10), transparent 62%);
-      filter: blur(14px);
-      opacity: .9;
-      animation: driftA 18s ease-in-out infinite;
+        radial-gradient(900px 520px at 12% 8%, rgba(74,163,255,.10), transparent 62%),
+        radial-gradient(820px 520px at 88% 14%, rgba(110,231,255,.08), transparent 64%),
+        radial-gradient(820px 520px at 26% 92%, rgba(34,197,94,.12), transparent 62%),
+        radial-gradient(820px 520px at 78% 88%, rgba(245,158,11,.12), transparent 64%);
+      filter: blur(16px);
+      opacity: .85;
+      animation: driftA 22s ease-in-out infinite;
     }
     .bgParticles::after{
       content: "";
       position: absolute;
       inset: 0;
+      /* floating dot field */
       background-image:
-        radial-gradient(rgba(74,163,255,.22) 1px, transparent 1px),
-        radial-gradient(rgba(34,197,94,.18) 1px, transparent 1px),
-        radial-gradient(rgba(245,158,11,.16) 1px, transparent 1px);
-      background-size: 180px 180px, 220px 220px, 260px 260px;
-      opacity: .22;
-      animation: driftB 26s linear infinite;
+        radial-gradient(rgba(34,197,94,.22) 1px, transparent 1px),
+        radial-gradient(rgba(245,158,11,.18) 1px, transparent 1px),
+        radial-gradient(rgba(16,185,129,.12) 1px, transparent 1px);
+      background-size: 160px 160px, 220px 220px, 280px 280px;
+      opacity: .26;
+      animation: driftB 28s linear infinite;
       mix-blend-mode: screen;
+    }
+    .bgParticles::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      /* very faint "digital rain" vertical streaks */
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(34,197,94,.055), rgba(34,197,94,.055) 1px,
+        rgba(0,0,0,0) 2px, rgba(0,0,0,0) 10px
+      );
+      opacity: .10;
+      mix-blend-mode: screen;
+      animation: rain 14s linear infinite;
     }
     @keyframes driftA{ 0%,100%{ transform: translate3d(0,0,0) } 50%{ transform: translate3d(2vw,-1.5vh,0) } }
     @keyframes driftB{ 0%{ transform: translate3d(0,0,0) } 100%{ transform: translate3d(-3vw,2vh,0) } }
+    @keyframes rain{ 0%{ transform: translate3d(0,-6vh,0) } 100%{ transform: translate3d(0,6vh,0) } }
 
     /* Corner arcs with soft glow */
     .cornerGlow{
@@ -76,6 +95,29 @@
 
     /* Make sure content sits above background layers */
     .homeContent{ position: relative; z-index: 2; }
+
+    /* Feed panel: gives the post list a clear left/right boundary on PC */
+    .homeFeedPanel{
+      border: 1px solid rgba(110,231,255,.18);
+      background: rgba(0,0,0,.30);
+      border-radius: 22px;
+      box-shadow: 0 0 0 1px rgba(34,197,94,.08), 0 18px 60px rgba(0,0,0,.28);
+      overflow: hidden;
+    }
+    @media (min-width: 1024px){
+      .homeFeedPanel{ margin: 28px 0 40px; }
+    }
+
+    /* Softer post list typography */
+    .post-title{ font-family: inherit; }
+
+    .post-item{ border-bottom-color: rgba(231,240,255,.10) !important; }
+    .post-item:last-child{ border-bottom: none; }
+    .post-item a{ padding-left: 22px !important; padding-right: 22px !important; }
+    .post-title{ font-family: inherit; }
+    .post-title{ font-family: "Avenir Next", Avenir, "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    .post-meta{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .post-excerpt{ font-family: "Charter", "Georgia", "Iowan Old Style", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
 
     @media (prefers-reduced-motion: reduce){
       .bgParticles, .bgParticles::after{ animation: none !important; }
@@ -298,6 +340,7 @@
     <div class="min-h-screen flex gap-8" id="scr-target">
       <!-- 文章部分 -->
       <div class="w-full">
+        <div class="homeFeedPanel">
         
 
         
@@ -344,6 +387,7 @@
           </div>
         
       </div>
+        </div>
       
 
       <!-- 侧边部分 -->
