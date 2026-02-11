@@ -334,29 +334,43 @@
     }
     /* Waline v3 uses CSS vars. Override to avoid the default white panel look. */
     #waline{
+      /* Waline vars (v3): keep contrast high enough on dark background */
       --waline-bgcolor: transparent;
-      --waline-bgcolor-light: rgba(0,0,0,.25);
+      --waline-bgcolor-light: rgba(0,0,0,.28);
       --waline-border-color: rgba(77,255,255,.22);
       --waline-box-shadow: none;
-      --waline-theme-color: rgba(77,255,255,.95);
-      --waline-active-color: rgba(77,255,255,1);
-      --waline-color: rgba(231,240,255,.86);
-      --waline-info-color: rgba(231,240,255,.55);
-      --waline-sub-color: rgba(231,240,255,.60);
-      --waline-disable-bgcolor: rgba(255,255,255,.06);
-      --waline-disable-color: rgba(231,240,255,.35);
-      --waline-code-bgcolor: rgba(255,255,255,.06);
+      --waline-theme-color: rgba(110,231,255,.95);
+      --waline-active-color: rgba(110,231,255,1);
+      --waline-color: rgba(248,250,255,.92);
+      --waline-info-color: rgba(248,250,255,.70);
+      --waline-sub-color: rgba(248,250,255,.78);
+      --waline-disable-bgcolor: rgba(255,255,255,.08);
+      --waline-disable-color: rgba(248,250,255,.45);
+      --waline-code-bgcolor: rgba(255,255,255,.08);
       --waline-avatar-size: 44px;
       --waline-font-size: 16px;
     }
-    #waline a{ color: rgba(77,255,255,.95); }
+    #waline a{ color: rgba(110,231,255,.95); }
     #waline a:hover{ color: rgba(110,231,255,1); }
+
+    /* Force readable text in common Waline nodes (some themes set odd opacity). */
+    #waline, #waline *{ text-shadow: none; }
+    #waline .wl-card, #waline .wl-content, #waline .wl-content p,
+    #waline .wl-meta, #waline .wl-head, #waline .wl-nick{
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
+      color: rgba(248,250,255,.66) !important;
+    }
     /* Inputs */
     #waline input, #waline textarea{
-      background: rgba(0,0,0,.18) !important;
-      color: rgba(231,240,255,.9) !important;
-      border-color: rgba(77,255,255,.18) !important;
+      background: rgba(0,0,0,.28) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.22) !important;
       border-radius: 14px !important;
+    }
+    #waline input::placeholder, #waline textarea::placeholder{
+      color: rgba(248,250,255,.55) !important;
     }
     #waline .wl-btn{
       border-radius: 999px !important;
