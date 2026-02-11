@@ -106,11 +106,12 @@
     /* old "chips" removed to keep header clean */
 
     .titleGlow{
-      background: linear-gradient(90deg, #0b1220, #0b1220);
+      /* blue title, still soft */
+      background: linear-gradient(90deg, rgba(74,163,255,.95), rgba(110,231,255,.92));
       -webkit-background-clip:text;
       background-clip:text;
       color: transparent;
-      text-shadow: 0 0 0 rgba(0,0,0,0);
+      text-shadow: 0 0 18px rgba(74,163,255,.14);
       position:relative;
     }
     .titleGlow::after{
@@ -146,9 +147,41 @@
     .linkA:hover{ color: rgba(0, 64, 160, 0.95); }
     .linkA:hover::after{ transform: scaleX(1); }
 
+    /* subtle particles (CSS-only) */
+    .particles{
+      position:fixed; inset:-10vh -10vw;
+      pointer-events:none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(74,163,255,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(110,231,255,.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 45% 75%, rgba(74,163,255,.12) 0 1px, transparent 2px);
+      background-size: 220px 220px, 260px 260px, 300px 300px;
+      opacity:.35;
+      filter: blur(.2px);
+      animation: floatParticles 26s linear infinite;
+    }
+    @keyframes floatParticles{
+      0%{ transform: translate3d(0,0,0); }
+      100%{ transform: translate3d(-4vw, 3vh, 0); }
+    }
+
+    /* footer on this page should not be a hard black slab */
+    .linksFooter footer{
+      background: rgba(11,18,32,.06) !important;
+      color: rgba(11,18,32,.58) !important;
+      border-top: 1px solid rgba(11,18,32,.10);
+      backdrop-filter: blur(10px);
+    }
+    .linksFooter footer a{
+      color: rgba(0, 64, 160, 0.88);
+    }
+    .linksFooter footer a:hover{
+      color: rgba(0, 64, 160, 1);
+    }
+
     /* reduced motion support */
     @media (prefers-reduced-motion: reduce){
-      .aura, .scan::after, .titleGlow::after{ animation:none !important; }
+      .aura, .scan::after, .titleGlow::after, .particles{ animation:none !important; }
       .card{ transition:none !important; }
     }
   </style>
@@ -157,6 +190,7 @@
 
 <body class="scan">
   <div class="aura"></div>
+  <div class="particles" aria-hidden="true"></div>
 
   <header class="py-10">
     <div class="container mx-auto px-6">
@@ -183,7 +217,7 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
         
-          <article class="paper card rounded-2xl p-5">
+          <article class="paper card rounded-3xl p-5">
             <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
               <a class="linkA" href="http://49.51.36.229/" target="_blank" rel="noopener">Boundary of Thought</a>
             </h2>
@@ -199,7 +233,7 @@
 
       
 
-      <div class="mt-12">
+      <div class="mt-12 linksFooter">
         <footer class="bg-black text-gray-400 py-4">
  <div class="container mx-auto text-center">
   <p>© <span id="current-year"></span>  Urizen_South 
