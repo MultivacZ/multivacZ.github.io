@@ -90,6 +90,13 @@
     .linkCard{
       border-radius: 24px;
       overflow: hidden;
+      background-clip: padding-box;
+    }
+
+    /* prevent text from poking outside rounded corners (long URLs etc.) */
+    .linkUrl{
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .card{
@@ -232,7 +239,19 @@
               <p class="serif mt-2 leading-7" style="color:var(--muted)">My tiny server-side diary; systems notes + life fragments.</p>
             
 
-            <div class="mt-4 mono text-xs break-all" style="color:rgba(11,18,32,.45)">http://49.51.36.229/</div>
+            <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">http://49.51.36.229/</div>
+          </article>
+        
+          <article class="paper card linkCard p-5">
+            <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+              <a class="linkA" href="https://ywang.top" target="_blank" rel="noopener">ywang22</a>
+            </h2>
+
+            
+              <p class="serif mt-2 leading-7" style="color:var(--muted)">《欢迎：看我博客》</p>
+            
+
+            <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">https://ywang.top</div>
           </article>
         
       </div>
