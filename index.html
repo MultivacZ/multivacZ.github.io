@@ -4,133 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>End of Line</title>
-  <link rel="icon" href="/assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/tailwind.css">
   <!-- <link rel="stylesheet" href="/css/search.css"> -->
   <style>
-    /* Home page framing + atmosphere (PC): keep content from touching screen edges */
-    .homeShell{ position: relative; }
-    @media (min-width: 1024px){
-      .homeShell{ max-width: 1180px; }
-    }
-
-    /* Home typography: modern, not too formal. */
-    .homeTitle{ font-family: "Avenir Next", Avenir, "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
-    .homeBody{ font-family: "Charter", "Georgia", "Iowan Old Style", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
-    .homePostTitle{ font-family: "Avenir Next", Avenir, "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
-    .homePostMeta{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; letter-spacing: .2px; }
-    .homePostExcerpt{ font-family: "Charter", "Georgia", "Iowan Old Style", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
-
-    /* Background particles (CSS-only): Matrix-ish, but gentle (gold + green). */
-    .bgParticles{
-      position: fixed;
-      inset: -20vh -20vw;
-      pointer-events: none;
-      z-index: 0;
+    /* Home page atmosphere: gentle Matrix-ish particles (gold + green). */
+    .homeFx{ position: fixed; inset: -20vh -20vw; pointer-events:none; z-index:0; }
+    .homeFx::before{
+      content:"";
+      position:absolute; inset:0;
       background:
-        radial-gradient(900px 520px at 12% 8%, rgba(74,163,255,.10), transparent 62%),
-        radial-gradient(820px 520px at 88% 14%, rgba(110,231,255,.08), transparent 64%),
-        radial-gradient(820px 520px at 26% 92%, rgba(34,197,94,.12), transparent 62%),
-        radial-gradient(820px 520px at 78% 88%, rgba(245,158,11,.12), transparent 64%);
+        radial-gradient(900px 520px at 22% 18%, rgba(34,197,94,.10), transparent 62%),
+        radial-gradient(820px 520px at 82% 22%, rgba(245,158,11,.08), transparent 64%);
       filter: blur(16px);
-      opacity: .85;
-      animation: driftA 22s ease-in-out infinite;
+      opacity:.75;
+      animation: homeDrift 22s ease-in-out infinite;
     }
-    .bgParticles::after{
-      content: "";
-      position: absolute;
-      inset: 0;
-      /* floating dot field */
+    .homeFx::after{
+      content:"";
+      position:absolute; inset:0;
       background-image:
         radial-gradient(rgba(34,197,94,.22) 1px, transparent 1px),
-        radial-gradient(rgba(245,158,11,.18) 1px, transparent 1px),
-        radial-gradient(rgba(16,185,129,.12) 1px, transparent 1px);
-      background-size: 160px 160px, 220px 220px, 280px 280px;
-      opacity: .26;
-      animation: driftB 28s linear infinite;
+        radial-gradient(rgba(245,158,11,.18) 1px, transparent 1px);
+      background-size: 180px 180px, 240px 240px;
+      opacity:.22;
       mix-blend-mode: screen;
+      animation: homeDots 28s linear infinite;
     }
-    .bgParticles::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      /* very faint "digital rain" vertical streaks */
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(34,197,94,.055), rgba(34,197,94,.055) 1px,
-        rgba(0,0,0,0) 2px, rgba(0,0,0,0) 10px
-      );
-      opacity: .10;
-      mix-blend-mode: screen;
-      animation: rain 14s linear infinite;
-    }
-    @keyframes driftA{ 0%,100%{ transform: translate3d(0,0,0) } 50%{ transform: translate3d(2vw,-1.5vh,0) } }
-    @keyframes driftB{ 0%{ transform: translate3d(0,0,0) } 100%{ transform: translate3d(-3vw,2vh,0) } }
-    @keyframes rain{ 0%{ transform: translate3d(0,-6vh,0) } 100%{ transform: translate3d(0,6vh,0) } }
+    @keyframes homeDrift{ 0%,100%{ transform: translate3d(0,0,0) } 50%{ transform: translate3d(2vw,-1.5vh,0) } }
+    @keyframes homeDots{ 0%{ transform: translate3d(0,0,0) } 100%{ transform: translate3d(-3vw,2vh,0) } }
 
-    /* Corner arcs with soft glow */
-    .cornerGlow{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .cornerGlow::before, .cornerGlow::after{
-      content: "";
-      position: absolute;
-      width: 48vmin;
-      height: 48vmin;
-      border-radius: 999px;
-      border: 1px solid rgba(110,231,255,.22);
-      box-shadow: 0 0 24px rgba(74,163,255,.14), 0 0 44px rgba(34,197,94,.08), 0 0 64px rgba(245,158,11,.08);
-      opacity: .65;
-    }
-    .cornerGlow::before{ top: -24vmin; left: -24vmin; }
-    .cornerGlow::after{ bottom: -24vmin; right: -24vmin; }
-
-    /* Make sure content sits above background layers */
-    .homeContent{ position: relative; z-index: 2; }
-
-    /* Feed panel: gives the post list a clear left/right boundary on PC */
+    /* Feed panel: bounded block + internal cards (no typography changes). */
     .homeFeedPanel{
       border: 1px solid rgba(110,231,255,.18);
-      background: rgba(0,0,0,.30);
+      background: rgba(0,0,0,.28);
       border-radius: 22px;
-      box-shadow: 0 0 0 1px rgba(34,197,94,.08), 0 18px 60px rgba(0,0,0,.28);
       overflow: hidden;
+      margin: 22px 0 40px;
     }
-    @media (min-width: 1024px){
-      .homeFeedPanel{ margin: 28px 0 40px; }
+    .homeFeedCard{
+      border: 1px solid rgba(231,240,255,.10);
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 1px 0 rgba(255,255,255,.03);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .homeFeedCard:hover{
+      transform: translateY(-1px);
+      border-color: rgba(110,231,255,.18);
+      background: rgba(0,0,0,.22);
     }
 
-    /* Softer post list typography */
-    .post-title{ font-family: inherit; }
-
-    .post-item{ border-bottom-color: rgba(231,240,255,.10) !important; }
-    .post-item:last-child{ border-bottom: none; }
-    .post-item a{ padding-left: 22px !important; padding-right: 22px !important; }
-    .post-title{ font-family: inherit; }
-    .post-title{ font-family: "Avenir Next", Avenir, "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
-    .post-meta{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-    .post-excerpt{ font-family: "Charter", "Georgia", "Iowan Old Style", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    .homeContent{ position: relative; z-index: 1; }
 
     @media (prefers-reduced-motion: reduce){
-      .bgParticles, .bgParticles::after{ animation: none !important; }
+      .homeFx::before, .homeFx::after{ animation:none !important; }
+      .homeFeedCard{ transition:none !important; }
     }
   </style>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
-<body class="bg-black homeShell">
-  <div class="bgParticles" aria-hidden="true"></div>
-  <div class="cornerGlow" aria-hidden="true"></div>
+<body class="bg-black">
+  <div class="homeFx" aria-hidden="true"></div>
 
   <!-- 顶部导航栏 -->
-  <div class="sticky top-0 z-50">
+  <div class="sticky top-0 z-50 homeContent">
     
 <header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
     <div class="container mx-auto flex items-center justify-between space-x-8">
@@ -319,16 +257,16 @@
 
   </div>
   
-  <main class="w-screen min-h-screen container mx-auto homeContent" style="padding-left: 16px; padding-right: 16px;">
+  <main class="w-screen min-h-screen container mx-auto homeContent">
     <!-- 欢迎页面 -->
     <div class="min-h-screen bg-black text-center flex flex-col justify-center items-center h-screen">
         <h1 class="
-        homeTitle text-hacker-color2 md:text-huge text-3xl text-wrap animate-bounce select-none md:min-h-[5rem] md:leading-[5rem] 
+        text-hacker-color2 font-dos md:text-huge text-3xl text-wrap animate-bounce select-none bg-red-400 md:min-h-[5rem] md:leading-[5rem] 
         bg-gradient-to-r from-hacker-color1 to-hacker-color2 bg-clip-text text-transparent md:-mt-80 -mt-40
         ">There is no meaning. There are empty words.</h1>
         <hr class="w-[85%] border-t-2 border-line-color border-dashed">
         
-        <p class="text-hacker-color2 md:mt-40 mt-20 md:text-2xl text-lg text-wrap homeBody w-[70%] select-none">End of line, not the end of story.</p>
+        <p class="text-hacker-color2 md:mt-40 mt-20 md:text-2xl text-lg text-wrap font-dos w-[70%] select-none">End of line, not the end of story.</p>
 
         <!-- 下拉按钮 -->
         <svg id="down-btn" class="icon w-16 h-16 absolute top-[75%] hover:-translate-y-1 transition-all cursor-pointer" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#bbbbbb">
@@ -343,51 +281,54 @@
         <div class="homeFeedPanel">
         
 
-        
-          <div class="post-item group border-b border-b-hacker-color3 ">
-            <a href="/2026/02/11/meandai/" class="block py-2 px-8 group-hover:bg-hacker-hover-color space-y-4">
-              <h2 class="post-title text-hacker-color1 group-hover:text-white font-bold text-2xl">
-                非专业人士（我）和AI
-              </h2>
-              <p class="post-meta text-hacker-color3 text-sm group-hover:text-white">
-                2026-02-11
-              </p>
-              <p class="post-excerpt text-hacker-color3 group-hover:text-white">
-                我居然是ChatGPT的全球前1%用户。（指聊天数量）
-              </p>
-            </a>
+        <div class="p-5 md:p-6">
+          <div class="grid gap-4">
+            
+              <div class="homeFeedCard">
+                <a href="/2026/02/11/meandai/" class="block py-4 px-5 md:px-6 space-y-3">
+                  <h2 class="post-title text-hacker-color1 group-hover:text-white font-bold text-2xl">
+                    非专业人士（我）和AI
+                  </h2>
+                  <p class="post-meta text-hacker-color3 text-sm">
+                    2026-02-11
+                  </p>
+                  <p class="post-excerpt text-hacker-color3">
+                    我居然是ChatGPT的全球前1%用户。（指聊天数量）
+                  </p>
+                </a>
+              </div>
+            
+              <div class="homeFeedCard">
+                <a href="/2026/02/07/%E5%B9%B4%E5%81%87%E5%B0%86%E8%87%B3/" class="block py-4 px-5 md:px-6 space-y-3">
+                  <h2 class="post-title text-hacker-color1 group-hover:text-white font-bold text-2xl">
+                    年假将至
+                  </h2>
+                  <p class="post-meta text-hacker-color3 text-sm">
+                    2026-02-07
+                  </p>
+                  <p class="post-excerpt text-hacker-color3">
+                    年假到了却无法休息：实验失误与焦虑一起咬住我，像被拖慢的进程，只有疲惫在推进。
+                  </p>
+                </a>
+              </div>
+            
+              <div class="homeFeedCard">
+                <a href="/2026/02/06/hello-world/" class="block py-4 px-5 md:px-6 space-y-3">
+                  <h2 class="post-title text-hacker-color1 group-hover:text-white font-bold text-2xl">
+                    Hello World.
+                  </h2>
+                  <p class="post-meta text-hacker-color3 text-sm">
+                    2026-02-06
+                  </p>
+                  <p class="post-excerpt text-hacker-color3">
+                    A tired launch note: this blog goes live, held up by Hinh on a tiny 2C2G server, so the words have somewhere to land.
+                  </p>
+                </a>
+              </div>
+            
           </div>
-        
-          <div class="post-item group border-b border-b-hacker-color3 ">
-            <a href="/2026/02/07/%E5%B9%B4%E5%81%87%E5%B0%86%E8%87%B3/" class="block py-2 px-8 group-hover:bg-hacker-hover-color space-y-4">
-              <h2 class="post-title text-hacker-color1 group-hover:text-white font-bold text-2xl">
-                年假将至
-              </h2>
-              <p class="post-meta text-hacker-color3 text-sm group-hover:text-white">
-                2026-02-07
-              </p>
-              <p class="post-excerpt text-hacker-color3 group-hover:text-white">
-                年假到了却无法休息：实验失误与焦虑一起咬住我，像被拖慢的进程，只有疲惫在推进。
-              </p>
-            </a>
-          </div>
-        
-          <div class="post-item group border-b border-b-hacker-color3 ">
-            <a href="/2026/02/06/hello-world/" class="block py-2 px-8 group-hover:bg-hacker-hover-color space-y-4">
-              <h2 class="post-title text-hacker-color1 group-hover:text-white font-bold text-2xl">
-                Hello World.
-              </h2>
-              <p class="post-meta text-hacker-color3 text-sm group-hover:text-white">
-                2026-02-06
-              </p>
-              <p class="post-excerpt text-hacker-color3 group-hover:text-white">
-                A tired launch note: this blog goes live, held up by Hinh on a tiny 2C2G server, so the words have somewhere to land.
-              </p>
-            </a>
-          </div>
-        
-      </div>
         </div>
+      </div>
       
 
       <!-- 侧边部分 -->
