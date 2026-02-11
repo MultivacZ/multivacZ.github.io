@@ -376,15 +376,44 @@
     #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
       color: rgba(248,250,255,.66) !important;
     }
-    /* Inputs */
-    #waline input, #waline textarea{
-      background: rgba(0,0,0,.28) !important;
+    /* Editor / inputs (make the post box feel like the site's glass-paper) */
+    #waline .wl-editor, #waline .wl-panel, #waline .wl-card{
+      background: rgba(0,0,0,.22) !important;
+      border: 1px solid rgba(110,231,255,.18) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    #waline textarea{
+      background: transparent !important;
       color: rgba(248,250,255,.95) !important;
-      border-color: rgba(110,231,255,.22) !important;
+      border: none !important;
       border-radius: 14px !important;
+      outline: none !important;
+    }
+    #waline input{
+      background: rgba(0,0,0,.22) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.18) !important;
+      border-radius: 999px !important;
     }
     #waline input::placeholder, #waline textarea::placeholder{
       color: rgba(248,250,255,.55) !important;
+    }
+
+    /* Submit button / actions */
+    #waline .wl-actions, #waline .wl-header{
+      background: transparent !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(110,231,255,.28) !important;
+      background: rgba(110,231,255,.10) !important;
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(110,231,255,.16) !important;
+      border-color: rgba(110,231,255,.42) !important;
     }
     #waline .wl-btn{
       border-radius: 999px !important;
