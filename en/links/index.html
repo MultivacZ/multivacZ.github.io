@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>End of Line - Links</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/tailwind.css" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <style>
+    /*
+      Links page: soft cyberpunk blue, gentle paper base, subtle motion.
+      Keep it lightweight: CSS-only animations, no heavy assets.
+    */
+    :root{
+      /* softer cyberpunk-paper palette (blue-forward, gentle) */
+      --ink:#0b1220;
+      --muted:rgba(11,18,32,.60);
+      --hair:rgba(11,18,32,.10);
+      --paper:rgba(255,255,255,.86);
+      --blue:#4aa3ff;
+      --blue2:#6ee7ff;
+      --glow:rgba(74,163,255,.16);
+      --glow2:rgba(110,231,255,.12);
+    }
+
+    body{
+      background:#f6f3eb;
+      color:var(--ink);
+      overflow-x:hidden;
+    }
+
+    /* soft animated aura */
+    .aura{
+      position:fixed; inset:-20vh -20vw;
+      pointer-events:none;
+      background:
+        radial-gradient(60vw 45vw at 18% 10%, rgba(74,163,255,.16), transparent 60%),
+        radial-gradient(55vw 40vw at 82% 18%, rgba(110,231,255,.12), transparent 60%),
+        radial-gradient(70vw 50vw at 55% 85%, rgba(74,163,255,.08), transparent 62%);
+      filter: blur(14px);
+      animation: drift 18s ease-in-out infinite;
+      opacity:.85;
+    }
+    @keyframes drift{
+      0%,100%{ transform: translate3d(0,0,0) scale(1); }
+      50%{ transform: translate3d(2vw,-1.5vh,0) scale(1.02); }
+    }
+
+    /* faint scanline + grain (very gentle) */
+    .scan::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(74,163,255,.03), rgba(74,163,255,.03) 1px,
+        rgba(0,0,0,0) 2px, rgba(0,0,0,0) 8px
+      );
+      mix-blend-mode:multiply;
+      opacity:.12;
+    }
+    .scan::after{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image: radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity:.045;
+      animation: grain 10s steps(10) infinite;
+    }
+    @keyframes grain{
+      0%{ transform: translate3d(0,0,0); }
+      20%{ transform: translate3d(-1%,1%,0); }
+      40%{ transform: translate3d(1%,-1%,0); }
+      60%{ transform: translate3d(1%,1%,0); }
+      80%{ transform: translate3d(-1%,-1%,0); }
+      100%{ transform: translate3d(0,0,0); }
+    }
+
+    .serif{ font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+    .mono{ font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; }
+
+    .paper{
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      backdrop-filter: blur(10px);
+    }
+
+    /* links cards: make them feel like rounded paper pieces */
+    .linkCard{
+      border-radius: 24px;
+      overflow: hidden;
+      background-clip: padding-box;
+    }
+
+    .linkAvatar{
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border: 1px solid rgba(74,163,255,.22);
+      box-shadow: 0 10px 24px rgba(11,18,32,.10);
+      background: rgba(74,163,255,.06);
+    }
+    .linkAvatarPlaceholder{
+      background:
+        radial-gradient(circle at 30% 30%, rgba(110,231,255,.28), transparent 55%),
+        radial-gradient(circle at 70% 75%, rgba(74,163,255,.20), transparent 60%),
+        rgba(255,255,255,.35);
+    }
+
+    /* prevent text from poking outside rounded corners (long URLs etc.) */
+    .linkUrl{
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .card{
+      box-shadow:
+        0 1px 0 rgba(11, 18, 32, 0.08),
+        0 16px 46px rgba(11, 18, 32, 0.10);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transform: translateZ(0);
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(74,163,255,.28);
+      box-shadow:
+        0 1px 0 rgba(11,18,32,.10),
+        0 18px 56px rgba(11,18,32,.12),
+        0 0 0 1px rgba(74,163,255,.10),
+        0 0 26px var(--glow);
+    }
+
+    /* old "chips" removed to keep header clean */
+
+    .titleGlow{
+      /* blue title, still soft */
+      background: linear-gradient(90deg, rgba(74,163,255,.95), rgba(110,231,255,.92));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      text-shadow: 0 0 18px rgba(74,163,255,.14);
+      position:relative;
+    }
+    .titleGlow::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:-10px; height:2px;
+      background: linear-gradient(90deg, rgba(74,163,255,0), rgba(74,163,255,.65), rgba(110,231,255,.55), rgba(74,163,255,0));
+      transform: scaleX(.6);
+      transform-origin:center;
+      opacity:.65;
+      animation: underline 3.6s ease-in-out infinite;
+    }
+    @keyframes underline{
+      0%,100%{ transform: scaleX(.55); opacity:.45; }
+      50%{ transform: scaleX(1); opacity:.85; }
+    }
+
+    .linkA{
+      color: rgba(10, 36, 78, 0.92);
+      text-decoration: none;
+      background-image: linear-gradient(90deg, rgba(74,163,255,.0), rgba(74,163,255,.0));
+      background-size: 100% 100%;
+      transition: color .2s ease;
+      position:relative;
+    }
+    .linkA::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:-2px; height:1px;
+      background: linear-gradient(90deg, rgba(74,163,255,0), rgba(74,163,255,.8), rgba(110,231,255,.7), rgba(74,163,255,0));
+      transform: scaleX(.0);
+      transform-origin:left;
+      transition: transform .25s ease;
+    }
+    .linkA:hover{ color: rgba(0, 64, 160, 0.95); }
+    .linkA:hover::after{ transform: scaleX(1); }
+
+    /* subtle particles (CSS-only) */
+    .particles{
+      position:fixed; inset:-10vh -10vw;
+      pointer-events:none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(74,163,255,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(110,231,255,.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 45% 75%, rgba(74,163,255,.12) 0 1px, transparent 2px);
+      background-size: 220px 220px, 260px 260px, 300px 300px;
+      opacity:.35;
+      filter: blur(.2px);
+      animation: floatParticles 26s linear infinite;
+    }
+    @keyframes floatParticles{
+      0%{ transform: translate3d(0,0,0); }
+      100%{ transform: translate3d(-4vw, 3vh, 0); }
+    }
+
+    /* footer on this page should not be a hard black slab */
+    .linksFooter footer{
+      background: rgba(11,18,32,.06) !important;
+      color: rgba(11,18,32,.58) !important;
+      border-top: 1px solid rgba(11,18,32,.10);
+      backdrop-filter: blur(10px);
+    }
+    .linksFooter footer a{
+      color: rgba(0, 64, 160, 0.88);
+    }
+    .linksFooter footer a:hover{
+      color: rgba(0, 64, 160, 1);
+    }
+
+    /* reduced motion support */
+    @media (prefers-reduced-motion: reduce){
+      .aura, .scan::after, .titleGlow::after, .particles{ animation:none !important; }
+      .card{ transition:none !important; }
+    }
+  </style>
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/rss.xml" title="End of Line" type="application/atom+xml">
+</head>
+
+<body class="scan">
+  <div class="aura"></div>
+  <div class="particles" aria-hidden="true"></div>
+
+  <header class="py-10">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <a href="/" class="mono text-sm" style="color:var(--muted)">← back</a>
+        <div class="mono text-xs" style="color:var(--muted)">End of Line</div>
+      </div>
+
+      <h1 class="serif text-5xl md:text-6xl font-bold mt-6 titleGlow">Links</h1>
+
+      <div class="mt-5 max-w-3xl" aria-hidden="true">
+        <div style="height:1px; background: linear-gradient(90deg, rgba(74,163,255,0), rgba(74,163,255,.45), rgba(110,231,255,.35), rgba(74,163,255,0)); opacity:.75;"></div>
+      </div>
+
+      <div class="serif text-lg mt-5 max-w-3xl" style="color:var(--muted)">
+        <p>A small list of people &#x2F; places worth visiting.</p>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="pb-16">
+    <div class="container mx-auto px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        
+          <article class="paper card linkCard p-5">
+            <div class="flex items-start gap-3">
+              
+                <div class="linkAvatar linkAvatarPlaceholder" aria-hidden="true"></div>
+              
+
+              <div class="min-w-0 flex-1">
+                <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+                  <a class="linkA" href="http://49.51.36.229/" target="_blank" rel="noopener">Boundary of Thought</a>
+                </h2>
+
+                
+                  <p class="serif mt-2 leading-7" style="color:var(--muted)">My tiny server-side diary; systems notes + life fragments.</p>
+                
+
+                <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">http://49.51.36.229/</div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="paper card linkCard p-5">
+            <div class="flex items-start gap-3">
+              
+                <img src="https://ooo.0x0.ooo/2024/08/28/OtdcdI.jpg" alt="ywang22" class="linkAvatar" loading="lazy" decoding="async" />
+              
+
+              <div class="min-w-0 flex-1">
+                <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+                  <a class="linkA" href="https://ywang.top" target="_blank" rel="noopener">ywang22</a>
+                </h2>
+
+                
+                  <p class="serif mt-2 leading-7" style="color:var(--muted)">《欢迎：看我博客》</p>
+                
+
+                <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">https://ywang.top</div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="paper card linkCard p-5">
+            <div class="flex items-start gap-3">
+              
+                <img src="https://media.alanone.top/avatar.jpg" alt="ENCOM一号机" class="linkAvatar" loading="lazy" decoding="async" />
+              
+
+              <div class="min-w-0 flex-1">
+                <h2 class="serif text-2xl font-semibold" style="color:var(--ink)">
+                  <a class="linkA" href="https://alanone.top/" target="_blank" rel="noopener">ENCOM一号机</a>
+                </h2>
+
+                
+                  <p class="serif mt-2 leading-7" style="color:var(--muted)">1,000 lonely stars | Hiding in the cold</p>
+                
+
+                <div class="mt-4 mono text-xs linkUrl" style="color:rgba(11,18,32,.45)">https://alanone.top/</div>
+              </div>
+            </div>
+          </article>
+        
+      </div>
+
+      
+
+      <div class="mt-12 linksFooter">
+        <footer class="bg-black text-gray-400 py-4">
+ <div class="container mx-auto text-center">
+  <p>© <span id="current-year"></span>  Urizen_South 
+    <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+ </div>
+</footer>
+
+<script> 
+ document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+<script>
+window.MathJax = {
+tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // 启用 $...$ 和 \( ... \)
+},
+svg: {
+  fontCache: 'global'
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- busuanzi page view counter -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
