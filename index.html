@@ -12,9 +12,81 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/tailwind.css">
   <!-- <link rel="stylesheet" href="/css/search.css"> -->
+  <style>
+    /* Home page framing + atmosphere (PC): keep content from touching screen edges */
+    .homeShell{ position: relative; }
+    @media (min-width: 1024px){
+      .homeShell{ max-width: 1180px; }
+    }
+
+    /* Home typography: less "formal" than Times; CN uses a clean sans, EN uses a soft serif */
+    .homeTitle{ font-family: "Avenir Next", Avenir, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+    .homeBody{ font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC", "STSong", serif; }
+
+    /* Background particles (CSS-only): blue/green/gold, gentle drift */
+    .bgParticles{
+      position: fixed;
+      inset: -20vh -20vw;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(900px 520px at 12% 8%, rgba(74,163,255,.16), transparent 60%),
+        radial-gradient(820px 520px at 90% 12%, rgba(110,231,255,.12), transparent 62%),
+        radial-gradient(820px 520px at 25% 92%, rgba(34,197,94,.10), transparent 60%),
+        radial-gradient(820px 520px at 78% 88%, rgba(245,158,11,.10), transparent 62%);
+      filter: blur(14px);
+      opacity: .9;
+      animation: driftA 18s ease-in-out infinite;
+    }
+    .bgParticles::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(74,163,255,.22) 1px, transparent 1px),
+        radial-gradient(rgba(34,197,94,.18) 1px, transparent 1px),
+        radial-gradient(rgba(245,158,11,.16) 1px, transparent 1px);
+      background-size: 180px 180px, 220px 220px, 260px 260px;
+      opacity: .22;
+      animation: driftB 26s linear infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes driftA{ 0%,100%{ transform: translate3d(0,0,0) } 50%{ transform: translate3d(2vw,-1.5vh,0) } }
+    @keyframes driftB{ 0%{ transform: translate3d(0,0,0) } 100%{ transform: translate3d(-3vw,2vh,0) } }
+
+    /* Corner arcs with soft glow */
+    .cornerGlow{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cornerGlow::before, .cornerGlow::after{
+      content: "";
+      position: absolute;
+      width: 48vmin;
+      height: 48vmin;
+      border-radius: 999px;
+      border: 1px solid rgba(110,231,255,.22);
+      box-shadow: 0 0 24px rgba(74,163,255,.14), 0 0 44px rgba(34,197,94,.08), 0 0 64px rgba(245,158,11,.08);
+      opacity: .65;
+    }
+    .cornerGlow::before{ top: -24vmin; left: -24vmin; }
+    .cornerGlow::after{ bottom: -24vmin; right: -24vmin; }
+
+    /* Make sure content sits above background layers */
+    .homeContent{ position: relative; z-index: 2; }
+
+    @media (prefers-reduced-motion: reduce){
+      .bgParticles, .bgParticles::after{ animation: none !important; }
+    }
+  </style>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
-<body class="bg-black">
+<body class="bg-black homeShell">
+  <div class="bgParticles" aria-hidden="true"></div>
+  <div class="cornerGlow" aria-hidden="true"></div>
+
   <!-- 顶部导航栏 -->
   <div class="sticky top-0 z-50">
     
@@ -205,16 +277,16 @@
 
   </div>
   
-  <main class="w-screen min-h-screen container mx-auto">
+  <main class="w-screen min-h-screen container mx-auto homeContent" style="padding-left: 16px; padding-right: 16px;">
     <!-- 欢迎页面 -->
     <div class="min-h-screen bg-black text-center flex flex-col justify-center items-center h-screen">
         <h1 class="
-        text-hacker-color2 font-dos md:text-huge text-3xl text-wrap animate-bounce select-none bg-red-400 md:min-h-[5rem] md:leading-[5rem] 
+        homeTitle text-hacker-color2 md:text-huge text-3xl text-wrap animate-bounce select-none md:min-h-[5rem] md:leading-[5rem] 
         bg-gradient-to-r from-hacker-color1 to-hacker-color2 bg-clip-text text-transparent md:-mt-80 -mt-40
         ">There is no meaning. There are empty words.</h1>
         <hr class="w-[85%] border-t-2 border-line-color border-dashed">
         
-        <p class="text-hacker-color2 md:mt-40 mt-20 md:text-2xl text-lg text-wrap font-dos w-[70%] select-none">End of line, not the end of story.</p>
+        <p class="text-hacker-color2 md:mt-40 mt-20 md:text-2xl text-lg text-wrap homeBody w-[70%] select-none">End of line, not the end of story.</p>
 
         <!-- 下拉按钮 -->
         <svg id="down-btn" class="icon w-16 h-16 absolute top-[75%] hover:-translate-y-1 transition-all cursor-pointer" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#bbbbbb">
