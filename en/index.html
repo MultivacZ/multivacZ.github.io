@@ -23,14 +23,15 @@
     .homeFx::after{
       content:"";
       position:absolute; inset:0;
+      /* visible floating orbs */
       background-image:
-        radial-gradient(rgba(34,197,94,.24) 1px, transparent 1px),
-        radial-gradient(rgba(245,158,11,.20) 1px, transparent 1px),
-        radial-gradient(rgba(34,197,94,.12) 1px, transparent 1px);
-      background-size: 140px 140px, 200px 200px, 260px 260px;
-      opacity:.32;
+        radial-gradient(circle, rgba(34,197,94,.65) 0 2px, rgba(34,197,94,.18) 5px, transparent 12px),
+        radial-gradient(circle, rgba(245,158,11,.55) 0 2px, rgba(245,158,11,.16) 5px, transparent 12px),
+        radial-gradient(circle, rgba(34,197,94,.28) 0 1px, rgba(34,197,94,.10) 4px, transparent 10px);
+      background-size: 220px 220px, 300px 300px, 180px 180px;
+      opacity:.42;
       mix-blend-mode: screen;
-      animation: homeDots 28s linear infinite;
+      animation: homeDots 22s linear infinite;
     }
     @keyframes homeDrift{ 0%,100%{ transform: translate3d(0,0,0) } 50%{ transform: translate3d(2vw,-1.5vh,0) } }
     @keyframes homeDots{ 0%{ transform: translate3d(0,0,0) } 100%{ transform: translate3d(-3vw,2vh,0) } }
