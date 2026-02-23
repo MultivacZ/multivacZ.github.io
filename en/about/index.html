@@ -11,7 +11,15 @@
 
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/tailwind.css">
-    
+  <style>
+    .crt::before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.03),rgba(255,255,255,.03) 1px,rgba(0,0,0,0) 2px,rgba(0,0,0,0) 6px);mix-blend-mode:overlay;opacity:.35}
+    .gridbg{background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);background-size:28px 28px;background-position:-1px -1px}
+    .glow{box-shadow:0 0 0 1px rgba(77,255,255,.20),0 0 24px rgba(77,255,255,.10),0 0 44px rgba(255,77,255,.08)}
+    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+  </style>
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="bg-black text-hacker-color3 crt">
+  
 <header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
     <div class="container mx-auto flex items-center justify-between space-x-8">
     
@@ -197,14 +205,6 @@
   </script>
 
 
-  <style>
-    .crt::before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.03),rgba(255,255,255,.03) 1px,rgba(0,0,0,0) 2px,rgba(0,0,0,0) 6px);mix-blend-mode:overlay;opacity:.35}
-    .gridbg{background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);background-size:28px 28px;background-position:-1px -1px}
-    .glow{box-shadow:0 0 0 1px rgba(77,255,255,.20),0 0 24px rgba(77,255,255,.10),0 0 44px rgba(255,77,255,.08)}
-    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
-  </style>
-<meta name="generator" content="Hexo 8.1.1"></head>
-<body class="bg-black text-hacker-color3 crt">
 
   <main class="min-h-screen gridbg">
     <div class="container mx-auto px-6 py-14">
