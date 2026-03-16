@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Post readability: typographic system tuned for mixed CN/EN.
+       CN: Songti; EN: Times New Roman. Keep it gentle + readable. */
+    :root{
+        --post-font-size: 18px;
+        --post-line-height: 1.85;
+    }
+
+    #article-content{
+        max-width: 72ch;
+        line-height: var(--post-line-height);
+        font-size: var(--post-font-size);
+        letter-spacing: 0.1px;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Mixed-font stack: try common Song fonts first, fall back safely */
+    #article-content, #article-content p, #article-content li, #article-content blockquote{
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
+    }
+
+    /* Slightly tighten headings so they feel like a book page */
+    #article-content h1, #article-content h2, #article-content h3,
+    #article-content h4, #article-content h5, #article-content h6{
+        font-family: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        letter-spacing: 0.2px;
+        margin-top: 1.4em !important;
+        margin-bottom: 0.6em !important;
+    }
+
+    #article-content p{
+        margin-top: 0 !important;
+        margin-bottom: 1.05em !important;
+    }
+
+    #article-content figure{ margin: 0 !important; }
+
+    #article-content pre{
+        padding: 0.9rem 1rem !important;
+        margin-top: 0.2rem !important;
+        margin-bottom: 1.2rem !important;
+        border-radius: 16px;
+        overflow-x: auto;
+    }
+
+    #article-content td{
+        padding: 0.35rem 0.55rem !important;
+    }
+
+    /* better mobile defaults */
+    @media (max-width: 768px) {
+        :root{ --post-font-size: 16.5px; --post-line-height: 1.80; }
+        #article-content{ max-width: 94vw; }
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Line - Tomorrow, I Go Home</title>
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+    <!-- Self-hosted webfont: Noto Serif SC (serif Chinese) -->
+    <style>
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-400.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-600.ttf") format("truetype");
+      }
+    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    <style>
+      /* Prevent Waline UI from inheriting the narrow typographic measure. */
+      #waline { max-width: none; }
+    </style>
+    
+<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
+    <div class="container mx-auto flex items-center justify-between space-x-8">
+    
+      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[10%]">
+        
+        
+        <a href="/en/" class="hover:text-white transition-colors select-none">
+          End of Line
+        </a>
+      </h1>
+  
+    <!-- 大屏幕 -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6 items-center">
+          
+          <li>
+            <a href="/"
+               class="select-none text-lg transition-all duration-300 decoration-wavy px-3 py-1 rounded-full bg-hacker-color1/15 text-hacker-color1 ring-1 ring-hacker-color1/40 hover:bg-hacker-color1/25 hover:text-white">
+              中文
+            </a>
+          </li>
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="/tags/Notes/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Notes
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Home
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Archives
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/links" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Links
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Tags
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                About
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+  
+      <!-- 小屏幕 -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- 折叠菜单 -->
+    <nav id="mobile-menu" class="hidden bg-black">
+      <ul class="space-y-2 py-4 px-6">
+        
+        <li>
+          <a href="/" class="block text-hacker-color1 font-bold">
+            中文
+          </a>
+        </li>
+
+        
+          
+          
+          
+          
+          <li>
+            <a href="/tags/Notes/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Notes
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Home
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
+              Archives
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/links" class="block text-white hover:text-hacker-color1 transition-colors">
+              Links
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
+              Tags
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
+              About
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
+  </header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        } else {
+        mobileMenu.classList.add("hidden");
+        }
+    });
+    });
+
+  </script>
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
+    <!-- 文章标题 -->
+    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">Tomorrow, I Go Home</h1>
+
+    <!-- 发布时间 + reading time + views -->
+    <p class="text-hacker-color3 text-center text-sm mb-2">
+        2026-02-13
+        · 1.2k/7min
+    </p>
+    <p class="text-hacker-color3 text-center text-xs mb-6" id="busuanzi_container_page_pv" style="display:none">
+        Views: <span id="busuanzi_value_page_pv"></span>
+    </p>
+
+    <!-- 文章内容 -->
+    <div id="article-content" class="article-entry prose prose-invert mx-auto leading-relaxed highlight" style="display: block;">
+      <style>
+        /* Keep TOC from creating a big empty block on desktop; show it only when toggled.
+           (The page looks better when TOC is not permanently occupying a column.) */
+        .toc-container{ max-width: 28ch; }
+        @media (min-width: 1024px){
+          .post-container{ display: none; }
+        }
+      </style>
+        <div id="middle-box">
+            <p>Translated by Hinh</p>
+<p>It’s hard to explain what I feel about going home. I’ve been away for a year, and over the past year my memory has been gradually slipping; so many things slide past my eyes like grains in the sea. I seem to have grown tougher, and yet also more fragile. The only thing that doesn’t change is resilience. I no longer have an obsession with “family,” but I often realize that I’m drifting alone, with no real place that is mine. Every day can become a new self—but the price is always abandonment, or overwriting some part of the old. Is that a fair deal to you?</p>
+<p>Like most people of this era, I have unenlightened parents. But that’s fine—we share a kind of universal pain. Mine is just a little more extreme. For example: my room can be used as a guest room whenever they like; at home, I’m not allowed to close the door. If I need to work, I do it at the dining table, because a child is not supposed to have secrets. I don’t know whether, after a year apart, anything has improved. A corner of my mind whispers: it’s been so long—maybe this time there will be a few good faces, not only moods and volatility. Of course, I’m not here to complain. This is my blog—an outlet I show to the world. What I want to say is: this expectation itself is wrong. Whether you expect kindness or cruelty, it’s still a form of prediction. And prediction implies hope—anticipation. I can’t find a more neutral word; “foresee” feels too ominous. In any case, this supposedly neutral act never needed to happen. A person should accept everything calmly, thinly—whatever happens or doesn’t happen. There is no particular reason. Only by training a peaceful mind can you resist many things.</p>
+<p>But a peaceful mind also requires the confidence to resist. Too much anxiety becomes fear. “Let it happen” means knowing you can handle it. After all, we only get one life in this world—so what will anything become, really?</p>
+<p>At this point, everything I’m writing starts to look like a self-help book, or some soothing pseudo-psychology. “Hometown” can be abstract, too. Do I resent my hometown? My hometown is—cheap milk tea shops selling knock-offs; the taste of milk green tea with extra ice and 70% sugar. The taste of a fruit tea called “Four Seasons Orchard.” The tenderness and naïveté of admitting I’m still not mature. Bullying and hardship; everyone’s happiness and unhappiness; making mistakes and solving a math problem correctly. I can almost see scenes I’ve forgotten begin to surface. I’m someone who often thinks about “starting over.” After one stretch of life, I immediately throw away the past. I lose interest in films and TV after three minutes—watch it, then drop it. If a game doesn’t go smoothly, I drop it. Each time I graduate, I immediately change my contact info. I don’t know what I’m trying to cut off, but clearly the cutting failed.</p>
+<p>Speaking of hometown, I realize I haven’t forgotten as much as I thought. The memories were sealed, not erased. I found a perfect metaphor: in Linux, <code>ls</code> doesn’t show files that start with a dot, but the files are obviously still there. Fine—maybe that metaphor is a bit showy. In this flood of recollection, I try to find a sliver of sweetness—something that tastes sweet.</p>
+<p>And then I think of food—fragrant, hot food. Before the pandemic I was in high school. For a long time, I got used to going alone to the snack street nearby for lunch and dinner. That was the only gap between noon and evening study. Honestly, it felt like someone had put poppy shells into the coarse rice noodles—the broth was almost too enticing. There was also “Five-Grain Fish Vermicelli,” something I’d eat when I felt like walking deeper into the snack street. The street was cramped; each shop had a tall step leading up to the second floor. Many students weren’t allowed to bring phones, and we benefited from Alipay’s then-new face-scan policy. I used to fall asleep at five in the morning and get up at seven for class. I don’t know how I survived each day, but the moments of eating were real. There was one shop—now swallowed by Mixue Ice Cream &amp; Tea—that sold cheap but pre-made Yunnan rice noodles and potato noodles. I became their loyal customer: once a day, every day, ordering ahead on WeChat. I also watched them shut down because there weren’t enough customers.</p>
+<p>That’s the only memory I can grab immediately. The rest requires a special way of calling it up. I don’t know how long I’ve been living across layered thoughts and lives. Some things I don’t want to mention; some things I can’t. Is that being deliberately mysterious? Maybe. I don’t feel like the pandemic stole four years from me—because usually I didn’t have anything that could be stolen. I basically don’t remember.</p>
+<p>But my family also seems to be trying to keep a constant connection with me, for whatever reason. In their eyes I may be a piece of a unified whole, a continuation of bloodline. So I am always “one of them.” I’ve never said that the debt of being raised is fake; but my pessimism makes me wish I could have chosen whether to be born. This world is beautiful—I don’t regret coming here to participate in some creator’s work of art.</p>
+<p>Why do I want to leave words behind? What do I want to write today?</p>
+<p>Maybe for someone like me, whose ties to family aren’t tight, “hometown” means something different. My hometown is probably the “country.” Because when I hear the word “hometown,” my first thought is the Garlean Empire in <em>Final Fantasy XIV</em>. You can Google the details. In short: its theme music is… heavy. A distant hope coming through the radio. An advanced-technological, heated authoritarian state in a world full of magic and fantasy—so modern it feels out of place. Where there is an empire, there are soldiers; there are patriots. There are people who, in famine and cold, still believe in nation and homeland.</p>
+<p>I’m too modern now. I’m skeptical of borders, boundaries, nationalism, and racism. And yet I’m still grateful there is a larger whole that includes me—something that lets me shout my belonging. If I graduate smoothly one day, my acknowledgements will probably be just a few words: thanks to whoever guided me, and thanks to the country. There isn’t much left to write.</p>
+<p>Tomorrow, I go home. I don’t know what will be waiting for me.</p>
+
+        </div>
+
+        
+          <div class="post-container" style="margin-top: 2rem;">
+            <aside class="toc-container">
+              <button class="toc-toggle">文章目录</button>
+              <nav class="toc" id="toc"></nav>
+            </aside>
+          </div>
+        
+    </div>
+
+
+    <!-- Comments -->
+    
+    
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <style>
+    /* Waline skin: match the site's ink/cyber palette (gentle). */
+    .walineWrap{
+      background: rgba(0,0,0,.35);
+      border-color: rgba(77,255,255,.20);
+      box-shadow: 0 0 0 1px rgba(77,255,255,.12), 0 0 26px rgba(77,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    /* Waline v3 uses CSS vars. Override to avoid the default white panel look. */
+    #waline{
+      /* Waline vars (v3): keep contrast high enough on dark background */
+      --waline-bgcolor: transparent;
+      --waline-bgcolor-light: rgba(0,0,0,.28);
+      --waline-border-color: rgba(77,255,255,.22);
+      --waline-box-shadow: none;
+      --waline-theme-color: rgba(110,231,255,.95);
+      --waline-active-color: rgba(110,231,255,1);
+      --waline-color: rgba(248,250,255,.92);
+      --waline-info-color: rgba(248,250,255,.70);
+      --waline-sub-color: rgba(248,250,255,.78);
+      --waline-disable-bgcolor: rgba(255,255,255,.08);
+      --waline-disable-color: rgba(248,250,255,.45);
+      --waline-code-bgcolor: rgba(255,255,255,.08);
+      --waline-avatar-size: 44px;
+      --waline-font-size: 16px;
+    }
+    #waline a{ color: rgba(110,231,255,.95); }
+    #waline a:hover{ color: rgba(110,231,255,1); }
+
+    /* Force readable text in common Waline nodes (some themes set odd opacity). */
+    #waline, #waline *{ text-shadow: none; }
+    #waline .wl-card, #waline .wl-content, #waline .wl-content p,
+    #waline .wl-meta, #waline .wl-head, #waline .wl-nick{
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
+      color: rgba(248,250,255,.66) !important;
+    }
+    /* Editor / inputs (make the post box feel like the site's glass-paper) */
+    #waline .wl-editor, #waline .wl-panel, #waline .wl-card{
+      background: rgba(0,0,0,.22) !important;
+      border: 1px solid rgba(110,231,255,.18) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    #waline textarea{
+      background: transparent !important;
+      color: rgba(248,250,255,.95) !important;
+      border: none !important;
+      border-radius: 14px !important;
+      outline: none !important;
+    }
+    #waline input{
+      background: rgba(0,0,0,.22) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.18) !important;
+      border-radius: 999px !important;
+    }
+    #waline input::placeholder, #waline textarea::placeholder{
+      color: rgba(248,250,255,.55) !important;
+    }
+
+    /* Submit button / actions */
+    #waline .wl-actions, #waline .wl-header{
+      background: transparent !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(110,231,255,.28) !important;
+      background: rgba(110,231,255,.10) !important;
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(110,231,255,.16) !important;
+      border-color: rgba(110,231,255,.42) !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(77,255,255,.28) !important;
+      background: rgba(77,255,255,.10) !important;
+      color: rgba(231,240,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(77,255,255,.16) !important;
+      border-color: rgba(77,255,255,.40) !important;
+    }
+  </style>
+  <div class="max-w-4xl mx-auto my-10 px-2">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-hacker-color1 font-bold text-xl">Comments</h2>
+    </div>
+    <div id="waline" class="walineWrap border border-line-color rounded-2xl p-4"></div>
+  </div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#waline',
+      serverURL: 'https://waline.49.51.36.229.nip.io',
+      lang: 'en',
+      requiredMeta: [],
+    });
+  </script>
+
+
+
+
+    <!-- 返回主页链接 -->
+    <div class="text-center my-8">
+        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
+    </div>
+
+      
+      <script src="/js/toc.js"></script>  <!-- 引入 TOC 逻辑 -->
+      
+      
+
+    <footer class="bg-black text-gray-400 py-4">
+ <div class="container mx-auto text-center">
+  <p>© <span id="current-year"></span>  Urizen_South 
+    <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+ </div>
+</footer>
+
+<script> 
+ document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+<script>
+window.MathJax = {
+tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // 启用 $...$ 和 \( ... \)
+},
+svg: {
+  fontCache: 'global'
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- busuanzi page view counter -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+</body>
+</html>

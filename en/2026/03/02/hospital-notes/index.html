@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Post readability: typographic system tuned for mixed CN/EN.
+       CN: Songti; EN: Times New Roman. Keep it gentle + readable. */
+    :root{
+        --post-font-size: 18px;
+        --post-line-height: 1.85;
+    }
+
+    #article-content{
+        max-width: 72ch;
+        line-height: var(--post-line-height);
+        font-size: var(--post-font-size);
+        letter-spacing: 0.1px;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Mixed-font stack: try common Song fonts first, fall back safely */
+    #article-content, #article-content p, #article-content li, #article-content blockquote{
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
+    }
+
+    /* Slightly tighten headings so they feel like a book page */
+    #article-content h1, #article-content h2, #article-content h3,
+    #article-content h4, #article-content h5, #article-content h6{
+        font-family: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        letter-spacing: 0.2px;
+        margin-top: 1.4em !important;
+        margin-bottom: 0.6em !important;
+    }
+
+    #article-content p{
+        margin-top: 0 !important;
+        margin-bottom: 1.05em !important;
+    }
+
+    #article-content figure{ margin: 0 !important; }
+
+    #article-content pre{
+        padding: 0.9rem 1rem !important;
+        margin-top: 0.2rem !important;
+        margin-bottom: 1.2rem !important;
+        border-radius: 16px;
+        overflow-x: auto;
+    }
+
+    #article-content td{
+        padding: 0.35rem 0.55rem !important;
+    }
+
+    /* better mobile defaults */
+    @media (max-width: 768px) {
+        :root{ --post-font-size: 16.5px; --post-line-height: 1.80; }
+        #article-content{ max-width: 94vw; }
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Line - Hospital Notes</title>
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+    <!-- Self-hosted webfont: Noto Serif SC (serif Chinese) -->
+    <style>
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-400.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-600.ttf") format("truetype");
+      }
+    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    <style>
+      /* Prevent Waline UI from inheriting the narrow typographic measure. */
+      #waline { max-width: none; }
+    </style>
+    
+<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
+    <div class="container mx-auto flex items-center justify-between space-x-8">
+    
+      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[10%]">
+        
+        
+        <a href="/en/" class="hover:text-white transition-colors select-none">
+          End of Line
+        </a>
+      </h1>
+  
+    <!-- 大屏幕 -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6 items-center">
+          
+          <li>
+            <a href="/"
+               class="select-none text-lg transition-all duration-300 decoration-wavy px-3 py-1 rounded-full bg-hacker-color1/15 text-hacker-color1 ring-1 ring-hacker-color1/40 hover:bg-hacker-color1/25 hover:text-white">
+              中文
+            </a>
+          </li>
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="/tags/Notes/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Notes
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Home
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Archives
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/links" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Links
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Tags
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                About
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+  
+      <!-- 小屏幕 -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- 折叠菜单 -->
+    <nav id="mobile-menu" class="hidden bg-black">
+      <ul class="space-y-2 py-4 px-6">
+        
+        <li>
+          <a href="/" class="block text-hacker-color1 font-bold">
+            中文
+          </a>
+        </li>
+
+        
+          
+          
+          
+          
+          <li>
+            <a href="/tags/Notes/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Notes
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Home
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
+              Archives
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/links" class="block text-white hover:text-hacker-color1 transition-colors">
+              Links
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
+              Tags
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
+              About
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
+  </header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        } else {
+        mobileMenu.classList.add("hidden");
+        }
+    });
+    });
+
+  </script>
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
+    <!-- 文章标题 -->
+    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">Hospital Notes</h1>
+
+    <!-- 发布时间 + reading time + views -->
+    <p class="text-hacker-color3 text-center text-sm mb-2">
+        2026-03-02
+        · 2.1k/13min
+    </p>
+    <p class="text-hacker-color3 text-center text-xs mb-6" id="busuanzi_container_page_pv" style="display:none">
+        Views: <span id="busuanzi_value_page_pv"></span>
+    </p>
+
+    <!-- 文章内容 -->
+    <div id="article-content" class="article-entry prose prose-invert mx-auto leading-relaxed highlight" style="display: block;">
+      <style>
+        /* Keep TOC from creating a big empty block on desktop; show it only when toggled.
+           (The page looks better when TOC is not permanently occupying a column.) */
+        .toc-container{ max-width: 28ch; }
+        @media (min-width: 1024px){
+          .post-container{ display: none; }
+        }
+      </style>
+        <div id="middle-box">
+            <p>Translated by Hinh</p>
+<p>This piece could have carried a far more cynical title, or it could have been filled with resentment toward everything after what I have been through lately. I was doing terribly, living amid insults, anxiety, and a very real threat of death. I even had the “privilege” of going through what felt closest to a natural death: surgery under general anesthesia.</p>
+<p>And yet I still chose to believe that there are brief moments of warmth in life, and after the tears and regret cooled, I offered a half-measure of forgiveness. Of course, some things cannot be fully forgiven.</p>
+<p>In short, I went through four rather harrowing days in the hospital. It is better not to keep chewing on the most painful parts, but to focus more on the moments that resonate.</p>
+<hr>
+<h2 id="A-Spy-Story"><a href="#A-Spy-Story" class="headerlink" title="A Spy Story"></a>A Spy Story</h2><p>Before I was escorted in a grand procession from the emergency department to the interventional ward, I already knew the first act would be a story of underground rendezvous. The cause was absurd: my family chose to deny parts of my medical history. Hello to readers at home and abroad; you may condemn this absurdity, and begin reciting the basics that Florence Nightingale helped lay down - a patient’s autonomy, an adult’s right to life.</p>
+<p>But I had to find a way to survive, somehow, for now.</p>
+<p>“Face” is a strange thing to me. It is not quite “reputation,” and it cannot be reduced to the simple English word “face,” either. But to deny an already existing fact for the sake of face - isn’t that an overcorrection?</p>
+<blockquote>
+<p>They&#x2F;Them sat there, writing furiously about their suffering: a past heart operation, memories saturated with pain, lab values that ran beyond the normal range. No close family member knew They&#x2F;Them had actually been anemic for three years, unable to reach normal levels even with supplements. It seemed that exhaustion was the beginning of everything; anxiety gnawed at the hemoglobin in their blood.</p>
+<p>Then They&#x2F;Them thought for a long time, took out a highlighter, and marked: <strong>Please keep my medical history confidential.</strong> Beneath those words, psychiatric medications were placed. They&#x2F;Them thoughtfully added pharmacology notes: this is a 5-HT reuptake inhibitor; this is a dopamine receptor antagonist. A surgeon might not be able to make sense of it from the names alone.</p>
+<p>This was the real-life version of an underground contact point, even though They&#x2F;Them were nothing like an intelligence agent.</p>
+<p>The doctor arrived. Speaking with a strong local accent, he was fairly warm, carrying pen and paper as he prepared to take my history with the nurse. This was the crucial moment. The surgery had not started, but survival was already awaiting a decision. Behind me, three pairs of relatives’ eyes stared hard -</p>
+<p>[We’ll check a pre-meal blood glucose in a bit. All right, it’s 4.9.]</p>
+<p>[Any allergies? What surgeries have you had?]</p>
+<p>“It’s all here.” They&#x2F;Them answered quickly, pulling out a folded B5 sheet from their sleeve. With lightning speed, They&#x2F;Them handed the paper to the doctor.</p>
+<p>Breath caught.</p>
+<p>The chubby attending glanced at it. The very first line read - <strong>Please keep my medical history confidential.</strong> He looked again, then slipped the sheet into his pocket, together with a few cheap clicky ballpoint pens.</p>
+<p>None of the relatives noticed what was written there. Only a difficult, quiet tug-of-war unfolded - entirely inside They&#x2F;Them. They had even wondered: what if it wasn’t that serious? People always have a chance to understand each other. But sometimes, taking the step toward communication comes with a price. They&#x2F;Them looked at the pain still in the lower right abdomen, and chose to exhale.</p>
+</blockquote>
+<p>Yes, this was not normal. I could not openly state my medical history; during admission I was forced to stage a full spy drama. I have no excuse, but once the problem was solved, I did not want to be troubled by it anymore. Maybe my anxiety exaggerates everything, but I still want to thank the doctor for understanding.</p>
+<p>Perhaps they assumed a family-hidden history would be HIV. But if you look closely, it was only a pitiful student who even has to hide taking medication at home, isn’t it?</p>
+<hr>
+<h2 id="A-Fellow-Patient"><a href="#A-Fellow-Patient" class="headerlink" title="A Fellow Patient"></a>A Fellow Patient</h2><blockquote>
+<p>She looked like a somewhat constrained rural woman. This is not derogatory - she did not want anyone to wait on her, and she seemed to have come in a hurry. No luggage, no family accompanying her. Sitting on the bed near the door, she tried to understand what the nurses were saying, like any kind, slightly chubby middle-aged auntie in a breakfast shop.</p>
+<p><em>15.7.</em> The machine beeped.</p>
+<p>Yes, that was her pre-meal blood glucose. Mine was 4.9, within the normal range. She tilted her head up and asked the nurse, a little at a loss, “What’s wrong with me?”</p>
+<p>The nurse did not say much. As she would with any patient whose glucose was high, she only said: I’ll ask the doctor; you probably need to consider taking medication long-term.</p>
+</blockquote>
+<p>The bed near the door belonged to that auntie. She used one of those phones designed for elders who cannot read. She had a son and a daughter; the family lived quietly and peacefully. The only surgery she had ever had was a C-section; she had never really dealt with hospitals otherwise. As for why I knew these things - my brain is always over-receiving information and analyzing it. She and her family should have been happy but careful: they might bicker over something as trivial as their daughter refusing to wear long johns, and then return to worrying about their mother.</p>
+<p>Everything felt lovely, because <strong>ordinary is unique</strong>. Watching them, I seemed to glimpse another good world.</p>
+<p>One day, I suddenly realized the world did not belong to me alone. This did not seem to be a brain-in-a-vat experiment. I was frightened. I have to share this planet with seven billion people; everyone has their own life; competition is not child’s play; everyone is fighting to stay alive. It is terrifying, isn’t it? But that kind of peaceful quiet always settles me. When I see them, I see the purest form of human beings. That closeness made me less afraid.</p>
+<p>During visiting hours, there was a small, warm bustle. Their family gathered; the mother made room for a mischievous little daughter, offering a spot still warm with body heat, and they sat together by the bedside rail. <strong>Chinese people are this kind of lovable existence.</strong></p>
+<p>Then my father, deliberately, started talking to me about how much he despised the fellow patient in our room. In a flippant tone he said, these people are rural; they’re only at that level - as if he himself were not from the countryside.</p>
+<p>This may be the only truly cynical passage in this piece, because I could feel anger burning in my chest. Since childhood, I was taught that people are divided into ranks: that I should learn to look down on service workers and people who labor hard; that I should learn to fawn over those who possess everything. These teachings were literal words once spoken by my relatives. They are madmen - a self-abasing and miserable group that logic cannot comprehend.</p>
+<p>But I chose silence. I had three incisions on my abdomen plus a drainage tube; two IV cannulas in my hands. If I provoked my family, the next second might be them taking off my ventilator. Under that fear, I actually gave up arguing.</p>
+<p>Now I have to say that I regret it.</p>
+<p>The women asked me gently when I would start walking after surgery, as if seeking a bit of recognition among fellow patients through small chat. My father responded with an arrogant nod.</p>
+<p>Then the ECG monitor alarmed.</p>
+<p>My father argued with the nurse, saying that wearing ECG monitoring would hurt his face - it made me look like a critically ill patient, so it should be removed.</p>
+<p>But the ECG kept producing false alarms because of my anger. My existence was like that: turning into ripples of evidence on the machine’s small screen.</p>
+<blockquote>
+<p>When my family was not around, They&#x2F;Them tried to talk with the fellow patient in the room.</p>
+<p>She said, Auntie, is your blood sugar a bit high? My grandpa’s blood sugar is also high. This is how he takes care of it. He has controlled it well for twenty years. You can order the hospital’s diabetic meal plan, so it’s less hassle. You have to order one meal in advance, or you can buy food downstairs in the cafeteria.</p>
+<p>All of this stopped abruptly when my father pushed the wheelchair back into the room. But They&#x2F;Them still tried to offer an olive branch, because she understood this auntie’s worry and anxiety. She saw an auntie terrified because “someone from the same village had their foot rot.” She understood that fear, and she thought the auntie was a lovable person. Even if no one recognized her inexplicable kindness, and even if that kindness contained no pity at all, she still tried to help.</p>
+<p>The ECG monitor was removed twenty-four hours after the general anesthesia ended.</p>
+</blockquote>
+<p>Hearing the auntie and her daughter speaking in soft local dialect was one of the most healing moments of those four days. They were happy.</p>
+<hr>
+<h2 id="General-Anesthesia"><a href="#General-Anesthesia" class="headerlink" title="General Anesthesia"></a>General Anesthesia</h2><p>Before the anesthesia, I nearly fainted from an infusion reaction, almost skipping the anesthesia step entirely. I had just been wheeled from the prep room to the operating table; my arm carried a plain bottle of amino acid solution. Then my neck - it was hot. I felt scorching. My heart rate sped up. Suddenly everything became unbearable. I spent ten seconds anxiously deciding whether I should tell the doctors what was happening. The ECG monitor called them over for me. In an instant, the whole surgical team crowded into my face. They threw that bottle into the trash and switched to plain normal saline. Everything suddenly returned to normal.</p>
+<p>The perioperative anesthesiologist arrived late, went to check my weight, and prepared the drugs.</p>
+<p>She asked whether I knew any medications I could not use. It was only a routine cross-check; everything about me was already in the chart. But unexpectedly, I said: Five minutes ago, the amino acids - if it drips too fast, I will die. I didn’t know.</p>
+<p>Fine.</p>
+<blockquote>
+<p>They&#x2F;Them stared at the mask placed over the face. It had not fully come down yet, and something was flowing out - probably pure oxygen. Later, maintenance anesthesia would use sevoflurane, he thought. He roughly knew how general anesthesia worked: a series of drugs calculated by weight, pushed through the IV. The liquids seemed warmed; there was no coldness at the wrist. First, pure oxygen, to increase oxygen reserves in the blood; then, something that affects GABA; then, a muscle relaxant.</p>
+<p>He refused to breathe. He deliberately widened his eyes, waiting for the so-called “death experience” to arrive. Would there be a life-flashing-before-the-eyes montage? Anything at all? But he forgot an important fact: induction relies on IV infusion, not inhalation. In some moment, everything suddenly went dark.</p>
+<p><strong>Nothing.</strong></p>
+<p>…</p>
+<p>Something foreign writhed in the trachea. The hands were not restrained, but the eyes could barely open. Trying to turn the head left or right - it would not move. The surgical light hung overhead; people in green gowns were arguing. At a moment when spontaneous breathing should not happen, there was a brief consciousness of coughing.</p>
+<p><strong>Nothing.</strong></p>
+<p>…</p>
+<p>They&#x2F;Them saw a tube yanked violently from the throat. It did not feel like a gastric tube - it seemed to be the trachea…?</p>
+<p>And then he was like an NPC dropped into a cheap first-person game world. He tried to turn his head left or right to see anything. People. A gurney. Someone coughing… and a lot of green.</p>
+<p>The blood pressure cuff on the left arm tightened more and more.</p>
+<p>His first question was: Did I die? Is the surgery over?</p>
+<p>Someone laughed. Someone told him everything had gone smoothly. So he could not see that his abdomen now had three incisions, and a drainage tube costing more than $100 hung beside his navel. Absorbable sutures cost $60. Consumables totaled perhaps $400. Everything was orderly.</p>
+</blockquote>
+<p>Should I be surprised to have returned?</p>
+<p>Easter has not arrived yet.</p>
+
+        </div>
+
+        
+          <div class="post-container" style="margin-top: 2rem;">
+            <aside class="toc-container">
+              <button class="toc-toggle">文章目录</button>
+              <nav class="toc" id="toc"></nav>
+            </aside>
+          </div>
+        
+    </div>
+
+
+    <!-- Comments -->
+    
+    
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <style>
+    /* Waline skin: match the site's ink/cyber palette (gentle). */
+    .walineWrap{
+      background: rgba(0,0,0,.35);
+      border-color: rgba(77,255,255,.20);
+      box-shadow: 0 0 0 1px rgba(77,255,255,.12), 0 0 26px rgba(77,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    /* Waline v3 uses CSS vars. Override to avoid the default white panel look. */
+    #waline{
+      /* Waline vars (v3): keep contrast high enough on dark background */
+      --waline-bgcolor: transparent;
+      --waline-bgcolor-light: rgba(0,0,0,.28);
+      --waline-border-color: rgba(77,255,255,.22);
+      --waline-box-shadow: none;
+      --waline-theme-color: rgba(110,231,255,.95);
+      --waline-active-color: rgba(110,231,255,1);
+      --waline-color: rgba(248,250,255,.92);
+      --waline-info-color: rgba(248,250,255,.70);
+      --waline-sub-color: rgba(248,250,255,.78);
+      --waline-disable-bgcolor: rgba(255,255,255,.08);
+      --waline-disable-color: rgba(248,250,255,.45);
+      --waline-code-bgcolor: rgba(255,255,255,.08);
+      --waline-avatar-size: 44px;
+      --waline-font-size: 16px;
+    }
+    #waline a{ color: rgba(110,231,255,.95); }
+    #waline a:hover{ color: rgba(110,231,255,1); }
+
+    /* Force readable text in common Waline nodes (some themes set odd opacity). */
+    #waline, #waline *{ text-shadow: none; }
+    #waline .wl-card, #waline .wl-content, #waline .wl-content p,
+    #waline .wl-meta, #waline .wl-head, #waline .wl-nick{
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
+      color: rgba(248,250,255,.66) !important;
+    }
+    /* Editor / inputs (make the post box feel like the site's glass-paper) */
+    #waline .wl-editor, #waline .wl-panel, #waline .wl-card{
+      background: rgba(0,0,0,.22) !important;
+      border: 1px solid rgba(110,231,255,.18) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    #waline textarea{
+      background: transparent !important;
+      color: rgba(248,250,255,.95) !important;
+      border: none !important;
+      border-radius: 14px !important;
+      outline: none !important;
+    }
+    #waline input{
+      background: rgba(0,0,0,.22) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.18) !important;
+      border-radius: 999px !important;
+    }
+    #waline input::placeholder, #waline textarea::placeholder{
+      color: rgba(248,250,255,.55) !important;
+    }
+
+    /* Submit button / actions */
+    #waline .wl-actions, #waline .wl-header{
+      background: transparent !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(110,231,255,.28) !important;
+      background: rgba(110,231,255,.10) !important;
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(110,231,255,.16) !important;
+      border-color: rgba(110,231,255,.42) !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(77,255,255,.28) !important;
+      background: rgba(77,255,255,.10) !important;
+      color: rgba(231,240,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(77,255,255,.16) !important;
+      border-color: rgba(77,255,255,.40) !important;
+    }
+  </style>
+  <div class="max-w-4xl mx-auto my-10 px-2">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-hacker-color1 font-bold text-xl">Comments</h2>
+    </div>
+    <div id="waline" class="walineWrap border border-line-color rounded-2xl p-4"></div>
+  </div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#waline',
+      serverURL: 'https://waline.49.51.36.229.nip.io',
+      lang: 'en',
+      requiredMeta: [],
+    });
+  </script>
+
+
+
+
+    <!-- 返回主页链接 -->
+    <div class="text-center my-8">
+        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
+    </div>
+
+      
+      <script src="/js/toc.js"></script>  <!-- 引入 TOC 逻辑 -->
+      
+      
+
+    <footer class="bg-black text-gray-400 py-4">
+ <div class="container mx-auto text-center">
+  <p>© <span id="current-year"></span>  Urizen_South 
+    <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+ </div>
+</footer>
+
+<script> 
+ document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+<script>
+window.MathJax = {
+tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // 启用 $...$ 和 \( ... \)
+},
+svg: {
+  fontCache: 'global'
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- busuanzi page view counter -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+</body>
+</html>

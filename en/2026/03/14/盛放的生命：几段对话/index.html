@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Post readability: typographic system tuned for mixed CN/EN.
+       CN: Songti; EN: Times New Roman. Keep it gentle + readable. */
+    :root{
+        --post-font-size: 18px;
+        --post-line-height: 1.85;
+    }
+
+    #article-content{
+        max-width: 72ch;
+        line-height: var(--post-line-height);
+        font-size: var(--post-font-size);
+        letter-spacing: 0.1px;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Mixed-font stack: try common Song fonts first, fall back safely */
+    #article-content, #article-content p, #article-content li, #article-content blockquote{
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
+    }
+
+    /* Slightly tighten headings so they feel like a book page */
+    #article-content h1, #article-content h2, #article-content h3,
+    #article-content h4, #article-content h5, #article-content h6{
+        font-family: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        letter-spacing: 0.2px;
+        margin-top: 1.4em !important;
+        margin-bottom: 0.6em !important;
+    }
+
+    #article-content p{
+        margin-top: 0 !important;
+        margin-bottom: 1.05em !important;
+    }
+
+    #article-content figure{ margin: 0 !important; }
+
+    #article-content pre{
+        padding: 0.9rem 1rem !important;
+        margin-top: 0.2rem !important;
+        margin-bottom: 1.2rem !important;
+        border-radius: 16px;
+        overflow-x: auto;
+    }
+
+    #article-content td{
+        padding: 0.35rem 0.55rem !important;
+    }
+
+    /* better mobile defaults */
+    @media (max-width: 768px) {
+        :root{ --post-font-size: 16.5px; --post-line-height: 1.80; }
+        #article-content{ max-width: 94vw; }
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Line - Lives in Bloom: Fragments of Conversation</title>
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+    <!-- Self-hosted webfont: Noto Serif SC (serif Chinese) -->
+    <style>
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-400.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-600.ttf") format("truetype");
+      }
+    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    <style>
+      /* Prevent Waline UI from inheriting the narrow typographic measure. */
+      #waline { max-width: none; }
+    </style>
+    
+<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
+    <div class="container mx-auto flex items-center justify-between space-x-8">
+    
+      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[10%]">
+        
+        
+        <a href="/en/" class="hover:text-white transition-colors select-none">
+          End of Line
+        </a>
+      </h1>
+  
+    <!-- 大屏幕 -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6 items-center">
+          
+          <li>
+            <a href="/"
+               class="select-none text-lg transition-all duration-300 decoration-wavy px-3 py-1 rounded-full bg-hacker-color1/15 text-hacker-color1 ring-1 ring-hacker-color1/40 hover:bg-hacker-color1/25 hover:text-white">
+              中文
+            </a>
+          </li>
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="/tags/Notes/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Notes
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Home
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Archives
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/links" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Links
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Tags
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                About
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+  
+      <!-- 小屏幕 -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- 折叠菜单 -->
+    <nav id="mobile-menu" class="hidden bg-black">
+      <ul class="space-y-2 py-4 px-6">
+        
+        <li>
+          <a href="/" class="block text-hacker-color1 font-bold">
+            中文
+          </a>
+        </li>
+
+        
+          
+          
+          
+          
+          <li>
+            <a href="/tags/Notes/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Notes
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Home
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
+              Archives
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/links" class="block text-white hover:text-hacker-color1 transition-colors">
+              Links
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
+              Tags
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
+              About
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
+  </header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        } else {
+        mobileMenu.classList.add("hidden");
+        }
+    });
+    });
+
+  </script>
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
+    <!-- 文章标题 -->
+    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">Lives in Bloom: Fragments of Conversation</h1>
+
+    <!-- 发布时间 + reading time + views -->
+    <p class="text-hacker-color3 text-center text-sm mb-2">
+        2026-03-14
+        · 1.3k/8min
+    </p>
+    <p class="text-hacker-color3 text-center text-xs mb-6" id="busuanzi_container_page_pv" style="display:none">
+        Views: <span id="busuanzi_value_page_pv"></span>
+    </p>
+
+    <!-- 文章内容 -->
+    <div id="article-content" class="article-entry prose prose-invert mx-auto leading-relaxed highlight" style="display: block;">
+      <style>
+        /* Keep TOC from creating a big empty block on desktop; show it only when toggled.
+           (The page looks better when TOC is not permanently occupying a column.) */
+        .toc-container{ max-width: 28ch; }
+        @media (min-width: 1024px){
+          .post-container{ display: none; }
+        }
+      </style>
+        <div id="middle-box">
+            <p>Translated by Hinh</p>
+<h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><p><strong>A:</strong> I am in a war zone. Can you talk with me for a while?</p>
+<p><strong>Me:</strong> Can you tell me specifically where you are?</p>
+<p><strong>A:</strong> Kurdistan.</p>
+<blockquote>
+<p>Kurdistan is a cross-border geographic and cultural region in West Asia where Kurdish people mainly live. It does not belong to a single country, but stretches across the broad mountain areas of <strong>southeastern Turkey, northern Iraq, northeastern Syria, and western Iran</strong>.</p>
+</blockquote>
+<p><strong>Me:</strong> I truly hope nothing reaches you. Do you have a shelter, or are you just indoors?</p>
+<p><strong>A:</strong> Just indoors.</p>
+<p><strong>Me:</strong> Why did you not choose to leave when the fighting began?</p>
+<p><strong>A:</strong> Because this is my motherland and my home.</p>
+<hr>
+<h2 id="II"><a href="#II" class="headerlink" title="II"></a>II</h2><p><strong>M:</strong> Have you heard of Operation Sindhoor?</p>
+<p><strong>Me:</strong> No.</p>
+<p><strong>M:</strong> Pakistanis came to our village in India. It is a famous tourist destination. They slaughtered the men in the village and left the women and children there crying. Then we had Operation Sindhoor. Sindhoor is the vermilion, the deep red powder, that married Hindu women wear on their foreheads. At that time, their husbands were still alive. Now, all the husbands are dead.</p>
+<p><strong>Me:</strong> So this was a military retaliatory operation?</p>
+<p><strong>M:</strong> Yes. We bombed them with missiles.</p>
+<p><strong>Me:</strong> Ah. It is cruel, but it also feels like there was no other way.</p>
+<p><strong>M:</strong> I am an intern at a missile base. I got to touch the shell of a missile with my own hands. I study artificial intelligence. We want revenge.</p>
+<hr>
+<h2 id="III"><a href="#III" class="headerlink" title="III"></a>III</h2><p><strong>Me:</strong> I am Chinese, a university student. What about you?</p>
+<p><strong>I:</strong> I am a soldier, twenty-one years old. Because of my work, I would rather not say my nationality. Thank you.</p>
+<blockquote>
+<p>But he has an Israeli name, and a Middle Eastern time zone.</p>
+</blockquote>
+<p><strong>Me:</strong> Of course I will not ask further. I just hope you take care of yourself. Being a soldier must be exhausting, right?</p>
+<p><strong>I:</strong> Yeah. I sleep two to four hours a day. But my gear is pretty cool. That’s it.</p>
+<p><strong>Me:</strong> (playing dumb) I have only seen that kind of stuff in a few shooting games. Sleeping so little cannot be good, right?</p>
+<p><strong>I:</strong> Maybe I am just used to it. There is not much time to sleep. And my gear is way cooler than theirs. (sends a swaggering photo) Being a soldier is hard, but it is also satisfying. Don’t you think all of this is cool?</p>
+<p><strong>Me:</strong> …It is pretty cool, actually. Did you eat breakfast?</p>
+<p><strong>I:</strong> I had a cup of coffee and a cigarette.</p>
+<p><strong>Me:</strong> Well, that does not sound very nutritious.</p>
+<p><strong>I:</strong> Just like you are going to school, I am just going to war. I go home once a month when I get leave. Nothing else, really. Usually I sleep in a barracks with ten other people. I hate crowded places.</p>
+<p><strong>I:</strong> Oh, right. I also like poetry. And purple.</p>
+<hr>
+<h2 id="IV"><a href="#IV" class="headerlink" title="IV"></a>IV</h2><p><strong>J:</strong> I am a naval reservist, though I left because of some things. I have to say, I still miss that time. We kept certain habits, for example: hats off indoors, hats on outdoors. But I have already adapted to civilian life. I am still in university now. Yesterday I cooked something delicious with my friends, and I was really happy.</p>
+<hr>
+<h2 id="V"><a href="#V" class="headerlink" title="V"></a>V</h2><p><strong>B:</strong> Yeah, yeah, one of our gaming teammates is a veteran. His back is bad, so he cannot really work, and he just stays home all day playing games. He will direct our tactics sometimes, and he barely sleeps either. Besides gaming, he does not do much else. Gaming seems to be the most important thing in his life.</p>
+<hr>
+<h2 id="VI"><a href="#VI" class="headerlink" title="VI"></a>VI</h2><p><strong>R:</strong> We do not have full-time firefighters in my country. So I do it part-time, 24&#x2F;7 on call. It is hard to say there is much leisure in my life.</p>
+<hr>
+<p>Life burns like this, and life goes on like this.</p>
+<p>No matter what one wants to complain about—perhaps the meaninglessness of survival, missing memories, drones shot down over Kurdistan, and the people who remain where they are and hold their ground. Some histories keep replaying themselves, repeating the same cyclical mistakes. There are indeed too many human beings; nothing has ever truly been indispensable.</p>
+<p>And yet I still feel that some lives remain vivid and full of color through all the muddle. They are, after all, only particles in the current of history. But lucid people rarely manage to feel any participation in this world, and I lack that feeling myself.</p>
+<p>For ordinary people, a sense of participation exists in the soil under their feet, in the smell of earth on rainy days, and in the scent of cooking oil drifting up from the apartment building downstairs. To throw one’s whole life into unfinished work is much like the way we ourselves were thrown into the world.</p>
+<p>There is the brittle crack of firecrackers outside the door, yet the New Year has already been left behind. It is March now. The year 2026 has stumbled through one quarter of itself, and one fourth of time has been spent on breathing, love, the rise and fall of tides, and labor. I have done nothing, and yet it feels as though I have experienced everything: a parting, a forgiveness, new friends, and a clearer path ahead. I do not seem to have asked anything of heaven, and so fate casually assigns me nihilism and tragedy.</p>
+<p>But there has never really been any comedy in this world. The core of everything can be read pessimistically; it depends on the angle and the way you look at it.</p>
+<p>Sometimes I am terribly tired, and I have many questions. I always joke: yes, existentialism and nihilism have tightened their grip on me again. I walk toward a certain emptiness and shake out half of the smallest possible dose of pills. During one winter, I began each day with an iced Americano, swallowing coffee together with medication, and then at night I paired expensive alcohol with cheap sleeping pills. A whole box cost only three dollars, while the alcohol cost much more. I was not squandering money, but I do not drink cheap things. Drinking expensive liquor neat requires a crystal-clear block of ice. Trying at once to pursue stimulation and the relaxation that follows it, like a heart pumping blood—contracting and releasing.</p>
+<p>Now I no longer do that.</p>
+<p>My psychiatrist told me I am still too young. At this age, even neurotransmission can be adjusted. In the end, there is a very good chance I will not need to rely on any medication at all.</p>
+<p>Sometimes I do not know what I am doing. The sounds gradually recede, and then I get lost in my own backyard. Everything can be put down. Everything can be remade. Do I really think so?</p>
+<p>In truth, perhaps I do not. I narrow the road into a single tight line, then collapse over any wrong turn or any curve that should not exist. I am digging trenches, yet refusing to let them bend. I have already seen this in myself. From countless lives in bloom, I have discovered the limits of my own field of vision. But I was shaped into a stubborn person, and that stubbornness was used in the wrong place, cast into an indestructible defense.</p>
+<p>After taking sedatives, all vigilance drops away. Then many things become easier, and inspiration flows without end. Sometimes I feel that I am most myself when I have no defenses. Once I put them on, I become a hard and unchanging sheet of iron that can no longer bend. This is not the same thing as wearing a mask.</p>
+<p>What if defense could become a mask instead?</p>
+<p>I do not know what I am writing, because I am not entirely sober. But I do know one thing: today I wrote completely from the heart, and my subconscious must know what it is saying.</p>
+<p><strong>What am I afraid of?</strong></p>
+
+        </div>
+
+        
+          <div class="post-container" style="margin-top: 2rem;">
+            <aside class="toc-container">
+              <button class="toc-toggle">文章目录</button>
+              <nav class="toc" id="toc"></nav>
+            </aside>
+          </div>
+        
+    </div>
+
+
+    <!-- Comments -->
+    
+    
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <style>
+    /* Waline skin: match the site's ink/cyber palette (gentle). */
+    .walineWrap{
+      background: rgba(0,0,0,.35);
+      border-color: rgba(77,255,255,.20);
+      box-shadow: 0 0 0 1px rgba(77,255,255,.12), 0 0 26px rgba(77,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    /* Waline v3 uses CSS vars. Override to avoid the default white panel look. */
+    #waline{
+      /* Waline vars (v3): keep contrast high enough on dark background */
+      --waline-bgcolor: transparent;
+      --waline-bgcolor-light: rgba(0,0,0,.28);
+      --waline-border-color: rgba(77,255,255,.22);
+      --waline-box-shadow: none;
+      --waline-theme-color: rgba(110,231,255,.95);
+      --waline-active-color: rgba(110,231,255,1);
+      --waline-color: rgba(248,250,255,.92);
+      --waline-info-color: rgba(248,250,255,.70);
+      --waline-sub-color: rgba(248,250,255,.78);
+      --waline-disable-bgcolor: rgba(255,255,255,.08);
+      --waline-disable-color: rgba(248,250,255,.45);
+      --waline-code-bgcolor: rgba(255,255,255,.08);
+      --waline-avatar-size: 44px;
+      --waline-font-size: 16px;
+    }
+    #waline a{ color: rgba(110,231,255,.95); }
+    #waline a:hover{ color: rgba(110,231,255,1); }
+
+    /* Force readable text in common Waline nodes (some themes set odd opacity). */
+    #waline, #waline *{ text-shadow: none; }
+    #waline .wl-card, #waline .wl-content, #waline .wl-content p,
+    #waline .wl-meta, #waline .wl-head, #waline .wl-nick{
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
+      color: rgba(248,250,255,.66) !important;
+    }
+    /* Editor / inputs (make the post box feel like the site's glass-paper) */
+    #waline .wl-editor, #waline .wl-panel, #waline .wl-card{
+      background: rgba(0,0,0,.22) !important;
+      border: 1px solid rgba(110,231,255,.18) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    #waline textarea{
+      background: transparent !important;
+      color: rgba(248,250,255,.95) !important;
+      border: none !important;
+      border-radius: 14px !important;
+      outline: none !important;
+    }
+    #waline input{
+      background: rgba(0,0,0,.22) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.18) !important;
+      border-radius: 999px !important;
+    }
+    #waline input::placeholder, #waline textarea::placeholder{
+      color: rgba(248,250,255,.55) !important;
+    }
+
+    /* Submit button / actions */
+    #waline .wl-actions, #waline .wl-header{
+      background: transparent !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(110,231,255,.28) !important;
+      background: rgba(110,231,255,.10) !important;
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(110,231,255,.16) !important;
+      border-color: rgba(110,231,255,.42) !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(77,255,255,.28) !important;
+      background: rgba(77,255,255,.10) !important;
+      color: rgba(231,240,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(77,255,255,.16) !important;
+      border-color: rgba(77,255,255,.40) !important;
+    }
+  </style>
+  <div class="max-w-4xl mx-auto my-10 px-2">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-hacker-color1 font-bold text-xl">Comments</h2>
+    </div>
+    <div id="waline" class="walineWrap border border-line-color rounded-2xl p-4"></div>
+  </div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#waline',
+      serverURL: 'https://waline.49.51.36.229.nip.io',
+      lang: 'en',
+      requiredMeta: [],
+    });
+  </script>
+
+
+
+
+    <!-- 返回主页链接 -->
+    <div class="text-center my-8">
+        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
+    </div>
+
+      
+      <script src="/js/toc.js"></script>  <!-- 引入 TOC 逻辑 -->
+      
+      
+
+    <footer class="bg-black text-gray-400 py-4">
+ <div class="container mx-auto text-center">
+  <p>© <span id="current-year"></span>  Urizen_South 
+    <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+ </div>
+</footer>
+
+<script> 
+ document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+<script>
+window.MathJax = {
+tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // 启用 $...$ 和 \( ... \)
+},
+svg: {
+  fontCache: 'global'
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- busuanzi page view counter -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+</body>
+</html>

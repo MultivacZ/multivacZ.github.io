@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Post readability: typographic system tuned for mixed CN/EN.
+       CN: Songti; EN: Times New Roman. Keep it gentle + readable. */
+    :root{
+        --post-font-size: 18px;
+        --post-line-height: 1.85;
+    }
+
+    #article-content{
+        max-width: 72ch;
+        line-height: var(--post-line-height);
+        font-size: var(--post-font-size);
+        letter-spacing: 0.1px;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Mixed-font stack: try common Song fonts first, fall back safely */
+    #article-content, #article-content p, #article-content li, #article-content blockquote{
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
+    }
+
+    /* Slightly tighten headings so they feel like a book page */
+    #article-content h1, #article-content h2, #article-content h3,
+    #article-content h4, #article-content h5, #article-content h6{
+        font-family: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        letter-spacing: 0.2px;
+        margin-top: 1.4em !important;
+        margin-bottom: 0.6em !important;
+    }
+
+    #article-content p{
+        margin-top: 0 !important;
+        margin-bottom: 1.05em !important;
+    }
+
+    #article-content figure{ margin: 0 !important; }
+
+    #article-content pre{
+        padding: 0.9rem 1rem !important;
+        margin-top: 0.2rem !important;
+        margin-bottom: 1.2rem !important;
+        border-radius: 16px;
+        overflow-x: auto;
+    }
+
+    #article-content td{
+        padding: 0.35rem 0.55rem !important;
+    }
+
+    /* better mobile defaults */
+    @media (max-width: 768px) {
+        :root{ --post-font-size: 16.5px; --post-line-height: 1.80; }
+        #article-content{ max-width: 94vw; }
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Line - When We Talk About the New Year, What Are We Really Talking About?</title>
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+    <!-- Self-hosted webfont: Noto Serif SC (serif Chinese) -->
+    <style>
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-400.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-600.ttf") format("truetype");
+      }
+    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    <style>
+      /* Prevent Waline UI from inheriting the narrow typographic measure. */
+      #waline { max-width: none; }
+    </style>
+    
+<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
+    <div class="container mx-auto flex items-center justify-between space-x-8">
+    
+      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[10%]">
+        
+        
+        <a href="/en/" class="hover:text-white transition-colors select-none">
+          End of Line
+        </a>
+      </h1>
+  
+    <!-- 大屏幕 -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6 items-center">
+          
+          <li>
+            <a href="/"
+               class="select-none text-lg transition-all duration-300 decoration-wavy px-3 py-1 rounded-full bg-hacker-color1/15 text-hacker-color1 ring-1 ring-hacker-color1/40 hover:bg-hacker-color1/25 hover:text-white">
+              中文
+            </a>
+          </li>
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="/tags/Notes/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Notes
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Home
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Archives
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/links" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Links
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Tags
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                About
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+  
+      <!-- 小屏幕 -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- 折叠菜单 -->
+    <nav id="mobile-menu" class="hidden bg-black">
+      <ul class="space-y-2 py-4 px-6">
+        
+        <li>
+          <a href="/" class="block text-hacker-color1 font-bold">
+            中文
+          </a>
+        </li>
+
+        
+          
+          
+          
+          
+          <li>
+            <a href="/tags/Notes/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Notes
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Home
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
+              Archives
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/links" class="block text-white hover:text-hacker-color1 transition-colors">
+              Links
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
+              Tags
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
+              About
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
+  </header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        } else {
+        mobileMenu.classList.add("hidden");
+        }
+    });
+    });
+
+  </script>
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
+    <!-- 文章标题 -->
+    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">When We Talk About the New Year, What Are We Really Talking About?</h1>
+
+    <!-- 发布时间 + reading time + views -->
+    <p class="text-hacker-color3 text-center text-sm mb-2">
+        2026-02-16
+        · 1.1k/6min
+    </p>
+    <p class="text-hacker-color3 text-center text-xs mb-6" id="busuanzi_container_page_pv" style="display:none">
+        Views: <span id="busuanzi_value_page_pv"></span>
+    </p>
+
+    <!-- 文章内容 -->
+    <div id="article-content" class="article-entry prose prose-invert mx-auto leading-relaxed highlight" style="display: block;">
+      <style>
+        /* Keep TOC from creating a big empty block on desktop; show it only when toggled.
+           (The page looks better when TOC is not permanently occupying a column.) */
+        .toc-container{ max-width: 28ch; }
+        @media (min-width: 1024px){
+          .post-container{ display: none; }
+        }
+      </style>
+        <div id="middle-box">
+            <p>Translated by Hinh</p>
+<p>This title is borrowed. I only wanted to do a shallow kind of remembering. I’ve said before that my memory has declined to a certain point—but it isn’t that I’ve truly forgotten. It’s that some things have sunk deep into the brain; if you don’t dig, you can’t retrieve them.</p>
+<p>When we talk about the New Year, what are we talking about?</p>
+<p>Let me start with this year’s New Year’s Eve. What was I doing? I was playing a game. A game called <em>The Alters</em> (Chinese title: 《多重人生》). It’s almost funny: it’s a cyberpunk work that probes existence and the meaning of life, with hardly any New Year atmosphere at all. It’s mostly about economic crisis, financial collapse, corporate dominance, survival on a lonely planet—radiation and magnetic storms. The gameplay is interesting: build infrastructure, plan resources, and cooperate with other versions of <strong>yourself</strong>. Those other selves are what you get when one life choice branches, and a new self grows from it.</p>
+<p>The protagonist has six “splits” in total. Besides the builder-self, there are a scientist, a refiner, a botanist… The game gives each one a vivid personality. There’s a rude, hot-blooded technician who loves hard and hates hard; a scientist who stays neutral and cool; a botanist floating inside an imagined soft life… anyway. It’s a fairly hardcore game: you start from scratch, build a base, mine resources, keep the whole thing running so you can survive. That’s what I did on New Year’s Eve. When we talk about the New Year, I’m telling you about a time-consuming sci‑fi game. I might uninstall it, because I don’t have the mental energy to carry it to the end.</p>
+<p>Its theme is basically an exploration of the self, with a little self-mockery about human nature. The game says: the self is only one organ in the upper chamber of the unconscious. If you can become part of existence, as a whole, you should feel happy. Yes—some key choices, like whether the protagonist stayed at the university after a PhD, whether he left home and emigrated to start over, ultimately write different career chapters… He creates his splits, and they help each other survive the end of the world.</p>
+<p>In that situation, can a person still keep a moral balance? I don’t think I can. In the mid-to-late game there’s a fairly major moral choice, so I decided to stop playing. If a game is made well enough to pull me in, I’ll want to live at any cost. And in those moments, the choices you make usually lead to a bad ending, because game companies have preferences. I think they often prefer sacrifice and grand narrative. But I’m an ordinary person who wants to live. I always have been. That might mean I can’t be a hero, but maybe I can survive in a chaotic era.</p>
+<p>I opened my photo album. The earliest photo is dated June 25, 2025. So I don’t have any deep memories from before that. What did I do in the New Year of 2025? Honestly, I don’t remember. From a few scattered sentences from my family, I heard that in 2025 my grandpa fell seriously ill, in and out of the hospital again and again on New Year’s Eve. I should have been at home then, but I don’t remember.</p>
+<p>So I want to remember what I did this year—play a game. I played <em>The Alters</em> all the way until the Spring Festival Gala started singing “Unforgettable Tonight.” Many things changed. When I got home this year, I found there was no lock on my bedroom door. The lock had been broken for a long time, but removing it entirely is still unusual. My room has basically become a public space, leaving no privacy for my existence. On the way home, I wrote down a few lines about what I’m actually afraid of—why I’m afraid to go home, why I’m afraid of the New Year. Here’s what I wrote then:</p>
+<blockquote>
+<p>Fear, a physiological reaction. Heartbeat accelerates, blood pressure rises, breathing becomes short.</p>
+<p>About going home—what am I afraid of?</p>
+<ol>
+<li><p>I’m afraid of verbal violence.</p>
+</li>
+<li><p>I’m afraid of aging, because it sits so close to death.</p>
+</li>
+<li><p>I want to be connected to the world, yet I deeply loathe the few proofs of my existence—home. As if existing is a sin.</p>
+</li>
+</ol>
+<p>Countermeasures:</p>
+<ol>
+<li><p>I feel braver than before.</p>
+</li>
+<li><p>I can read the novels I want. (Why is this here?)</p>
+</li>
+<li><p>I will be protected; I must believe that the One with me is with me. (PS: I’m not religious, please don’t misunderstand…)</p>
+</li>
+</ol>
+</blockquote>
+<p>On the night of February 16, 2026, fireworks bloomed, and I burned paper offerings by the roadside. Smoke and ash danced over the asphalt; sparks kept leaping toward people. I lowered my head and bowed three times, knees on the familiar white line of the road. My life is a piece of Chinese folk horror, spanning ancient and modern alike. And yet I found a thread of peace inside it, because everything was not as terrifying as I imagined. It was all—static. People weren’t that hard to deal with. There wasn’t that much criticism or arguing.</p>
+<p>But maybe that’s only because I go home too rarely. A whole year passed; I returned only for a brief stay. Maybe distance really does create beauty. My feelings about all this are complicated. But I seem to have become stronger, braver—standing up, believing myself to be a complete person. So I built walls of bronze and iron, and a lot of filthy language couldn’t pierce my defenses. “Defense” isn’t a nice word. Too many sensations dilute the spring of thoughts; the more I can say, the more I cannot say. My edges seem to have flattened. There’s so much evidence that I suddenly became more “mature”: love and hate both fading, more perspective-taking, more switching positions with others.</p>
+<p>When we talk about the New Year, what are we talking about?</p>
+<p>This New Year wasn’t as bad as I imagined.</p>
+<div style="text-align: right">End of Line</div>
+
+        </div>
+
+        
+          <div class="post-container" style="margin-top: 2rem;">
+            <aside class="toc-container">
+              <button class="toc-toggle">文章目录</button>
+              <nav class="toc" id="toc"></nav>
+            </aside>
+          </div>
+        
+    </div>
+
+
+    <!-- Comments -->
+    
+    
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <style>
+    /* Waline skin: match the site's ink/cyber palette (gentle). */
+    .walineWrap{
+      background: rgba(0,0,0,.35);
+      border-color: rgba(77,255,255,.20);
+      box-shadow: 0 0 0 1px rgba(77,255,255,.12), 0 0 26px rgba(77,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    /* Waline v3 uses CSS vars. Override to avoid the default white panel look. */
+    #waline{
+      /* Waline vars (v3): keep contrast high enough on dark background */
+      --waline-bgcolor: transparent;
+      --waline-bgcolor-light: rgba(0,0,0,.28);
+      --waline-border-color: rgba(77,255,255,.22);
+      --waline-box-shadow: none;
+      --waline-theme-color: rgba(110,231,255,.95);
+      --waline-active-color: rgba(110,231,255,1);
+      --waline-color: rgba(248,250,255,.92);
+      --waline-info-color: rgba(248,250,255,.70);
+      --waline-sub-color: rgba(248,250,255,.78);
+      --waline-disable-bgcolor: rgba(255,255,255,.08);
+      --waline-disable-color: rgba(248,250,255,.45);
+      --waline-code-bgcolor: rgba(255,255,255,.08);
+      --waline-avatar-size: 44px;
+      --waline-font-size: 16px;
+    }
+    #waline a{ color: rgba(110,231,255,.95); }
+    #waline a:hover{ color: rgba(110,231,255,1); }
+
+    /* Force readable text in common Waline nodes (some themes set odd opacity). */
+    #waline, #waline *{ text-shadow: none; }
+    #waline .wl-card, #waline .wl-content, #waline .wl-content p,
+    #waline .wl-meta, #waline .wl-head, #waline .wl-nick{
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
+      color: rgba(248,250,255,.66) !important;
+    }
+    /* Editor / inputs (make the post box feel like the site's glass-paper) */
+    #waline .wl-editor, #waline .wl-panel, #waline .wl-card{
+      background: rgba(0,0,0,.22) !important;
+      border: 1px solid rgba(110,231,255,.18) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    #waline textarea{
+      background: transparent !important;
+      color: rgba(248,250,255,.95) !important;
+      border: none !important;
+      border-radius: 14px !important;
+      outline: none !important;
+    }
+    #waline input{
+      background: rgba(0,0,0,.22) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.18) !important;
+      border-radius: 999px !important;
+    }
+    #waline input::placeholder, #waline textarea::placeholder{
+      color: rgba(248,250,255,.55) !important;
+    }
+
+    /* Submit button / actions */
+    #waline .wl-actions, #waline .wl-header{
+      background: transparent !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(110,231,255,.28) !important;
+      background: rgba(110,231,255,.10) !important;
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(110,231,255,.16) !important;
+      border-color: rgba(110,231,255,.42) !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(77,255,255,.28) !important;
+      background: rgba(77,255,255,.10) !important;
+      color: rgba(231,240,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(77,255,255,.16) !important;
+      border-color: rgba(77,255,255,.40) !important;
+    }
+  </style>
+  <div class="max-w-4xl mx-auto my-10 px-2">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-hacker-color1 font-bold text-xl">Comments</h2>
+    </div>
+    <div id="waline" class="walineWrap border border-line-color rounded-2xl p-4"></div>
+  </div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#waline',
+      serverURL: 'https://waline.49.51.36.229.nip.io',
+      lang: 'en',
+      requiredMeta: [],
+    });
+  </script>
+
+
+
+
+    <!-- 返回主页链接 -->
+    <div class="text-center my-8">
+        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
+    </div>
+
+      
+      <script src="/js/toc.js"></script>  <!-- 引入 TOC 逻辑 -->
+      
+      
+
+    <footer class="bg-black text-gray-400 py-4">
+ <div class="container mx-auto text-center">
+  <p>© <span id="current-year"></span>  Urizen_South 
+    <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+ </div>
+</footer>
+
+<script> 
+ document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+<script>
+window.MathJax = {
+tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // 启用 $...$ 和 \( ... \)
+},
+svg: {
+  fontCache: 'global'
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- busuanzi page view counter -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+</body>
+</html>
