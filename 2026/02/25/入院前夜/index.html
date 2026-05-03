@@ -102,7 +102,7 @@
         </a>
       </h1>
   
-    <!-- 大屏幕 -->
+    <!-- Desktop -->
       <nav class="hidden md:block">
         <ul class="flex space-x-6 items-center">
           
@@ -175,7 +175,7 @@
         </ul>
       </nav>
   
-      <!-- 小屏幕 -->
+      <!-- Mobile -->
       <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -183,7 +183,7 @@
       </button>
     </div>
   
-    <!-- 折叠菜单 -->
+    <!-- Collapsed menu -->
     <nav id="mobile-menu" class="hidden bg-black">
       <ul class="space-y-2 py-4 px-6">
         
@@ -280,10 +280,10 @@
 
 <meta name="generator" content="Hexo 8.1.1"></head>
 <body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
-    <!-- 文章标题 -->
+    <!-- Post title -->
     <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">入院前夜</h1>
 
-    <!-- 发布时间 + reading time + views -->
+    <!-- Date + reading time + views -->
     <p class="text-hacker-color3 text-center text-sm mb-2">
         2026-02-25
         · 907/3min
@@ -292,7 +292,7 @@
         Views: <span id="busuanzi_value_page_pv"></span>
     </p>
 
-    <!-- 文章内容 -->
+    <!-- Post content -->
     <div id="article-content" class="article-entry prose prose-invert mx-auto leading-relaxed highlight" style="display: block;">
       <style>
         /* Keep TOC from creating a big empty block on desktop; show it only when toggled.
@@ -335,7 +335,7 @@
         
           <div class="post-container" style="margin-top: 2rem;">
             <aside class="toc-container">
-              <button class="toc-toggle">文章目录</button>
+              <button class="toc-toggle">Table of Contents</button>
               <nav class="toc" id="toc"></nav>
             </aside>
           </div>
@@ -454,13 +454,13 @@
 
 
 
-    <!-- 返回主页链接 -->
+    <!-- Back to home link -->
     <div class="text-center my-8">
         <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
     </div>
 
       
-      <script src="/js/toc.js"></script>  <!-- 引入 TOC 逻辑 -->
+      <script src="/js/toc.js"></script>  <!-- TOC logic -->
       
       
 
@@ -477,7 +477,7 @@
 <script>
 window.MathJax = {
 tex: {
-  inlineMath: [['$', '$'], ['\\(', '\\)']]  // 启用 $...$ 和 \( ... \)
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // Enable $...$ and \( ... \)
 },
 svg: {
   fontCache: 'global'
