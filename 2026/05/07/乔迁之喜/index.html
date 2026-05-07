@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* Post readability: typographic system tuned for mixed CN/EN.
+       CN: Songti; EN: Times New Roman. Keep it gentle + readable. */
+    :root{
+        --post-font-size: 18px;
+        --post-line-height: 1.85;
+    }
+
+    #article-content{
+        max-width: 72ch;
+        line-height: var(--post-line-height);
+        font-size: var(--post-font-size);
+        letter-spacing: 0.1px;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Mixed-font stack: try common Song fonts first, fall back safely */
+    #article-content, #article-content p, #article-content li, #article-content blockquote{
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "NSimSun", "Times New Roman", Times, serif;
+    }
+
+    /* Slightly tighten headings so they feel like a book page */
+    #article-content h1, #article-content h2, #article-content h3,
+    #article-content h4, #article-content h5, #article-content h6{
+        font-family: "Times New Roman", Times, "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        letter-spacing: 0.2px;
+        margin-top: 1.4em !important;
+        margin-bottom: 0.6em !important;
+    }
+
+    #article-content p{
+        margin-top: 0 !important;
+        margin-bottom: 1.05em !important;
+    }
+
+    #article-content figure{ margin: 0 !important; }
+
+    #article-content pre{
+        padding: 0.9rem 1rem !important;
+        margin-top: 0.2rem !important;
+        margin-bottom: 1.2rem !important;
+        border-radius: 16px;
+        overflow-x: auto;
+    }
+
+    #article-content td{
+        padding: 0.35rem 0.55rem !important;
+    }
+
+    /* better mobile defaults */
+    @media (max-width: 768px) {
+        :root{ --post-font-size: 16.5px; --post-line-height: 1.80; }
+        #article-content{ max-width: 94vw; }
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>End of Line - 乔迁之喜</title>
+    <link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+    <!-- Self-hosted webfont: Noto Serif SC (serif Chinese) -->
+    <style>
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-400.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Noto Serif SC";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/assets/fonts/NotoSerifSC-600.ttf") format("truetype");
+      }
+    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    <style>
+      /* Prevent Waline UI from inheriting the narrow typographic measure. */
+      #waline { max-width: none; }
+    </style>
+    
+<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
+    <div class="container mx-auto flex items-center justify-between space-x-8">
+    
+      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[10%]">
+        
+        
+        <a href="/" class="hover:text-white transition-colors select-none">
+          End of Line
+        </a>
+      </h1>
+  
+    <!-- Desktop -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6 items-center">
+          
+          <li>
+            <a href="/en/"
+               class="select-none text-lg transition-all duration-300 decoration-wavy px-3 py-1 rounded-full bg-hacker-color1/15 text-hacker-color1 ring-1 ring-hacker-color1/40 hover:bg-hacker-color1/25 hover:text-white">
+              EN
+            </a>
+          </li>
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="/tags/Notes/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Notes
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Home
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Archives
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/links" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Links
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Tags
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                About
+              </a>
+            </li>
+          
+            
+            
+            <li>
+              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+  
+      <!-- Mobile -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- Collapsed menu -->
+    <nav id="mobile-menu" class="hidden bg-black">
+      <ul class="space-y-2 py-4 px-6">
+        
+        <li>
+          <a href="/en/" class="block text-hacker-color1 font-bold">
+            EN
+          </a>
+        </li>
+
+        
+          
+          
+          
+          
+          <li>
+            <a href="/tags/Notes/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Notes
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Home
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
+              Archives
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/links" class="block text-white hover:text-hacker-color1 transition-colors">
+              Links
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
+              Tags
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
+              About
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
+  </header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        } else {
+        mobileMenu.classList.add("hidden");
+        }
+    });
+    });
+
+  </script>
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
+    <!-- Post title -->
+    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">乔迁之喜</h1>
+
+    <!-- Date + reading time + views -->
+    <p class="text-hacker-color3 text-center text-sm mb-2">
+        2026-05-07
+        · 1.3k/4min
+    </p>
+    <p class="text-hacker-color3 text-center text-xs mb-6" id="busuanzi_container_page_pv" style="display:none">
+        Views: <span id="busuanzi_value_page_pv"></span>
+    </p>
+
+    <!-- Post content -->
+    <div id="article-content" class="article-entry prose prose-invert mx-auto leading-relaxed highlight" style="display: block;">
+      <style>
+        /* Keep TOC from creating a big empty block on desktop; show it only when toggled.
+           (The page looks better when TOC is not permanently occupying a column.) */
+        .toc-container{ max-width: 28ch; }
+        @media (min-width: 1024px){
+          .post-container{ display: none; }
+        }
+      </style>
+        <div id="middle-box">
+            <p>耳机里的歌曲逐渐变得复古了。从音乐剧慢慢走向了廖昌永、刘和刚的美声，那些只会出现于虚无缥缈的艺考中的曲子，逐渐在我耳边游动。乐章在跳动。</p>
+<p>我一直在用的写作软件叫WonderPen，不知道为什么，这两天它逐渐有一些奇怪的卡顿。我尝试退出了后台的几个程序，随后问题得到了解决。我饿了。现在是5月7日晚上23:09，我突然失去了一部分自我，却又获取了更多的自由。</p>
+<p>更多空间，一直是我所苛求的事物，随后我将1平方米的宿舍塞满，再然后，我开始给生活做减法，又尝试去掉很多东西。每次尝试都是失败的。我在北京和山东都遇到过骗子中介，生活没有刹车，我没办法在这里暂停获得片刻喘息。然后我就——一直走下去。一直走下去。在没有窗户的地方蜗居。在糟糕的环境里挣扎。在乞求更多空间与自由。</p>
+<p>然后今天，我暂时获得了这些，通过一纸租约住在某个高校的家属院里。对着空空如也的冰箱，我学着年轻一代人应有的操作，放入几瓶无糖soda和可乐。房间还没有完整地承接我的行李，所以也没有电热水壶，整体比较简陋。同租人的全部身家更少，几乎只有一个行李箱，安静，互不打扰。随后，一种莫大的孤独突然出现。</p>
+<p>我一直在说，自己想要私人空间。这个空间要有门和门锁。一个可以哭泣的地方有着片刻的宁静。最好，还要有一个冰箱——我一直认为，干净的冰箱对提高生活质量十分重要。我家的冰箱有些恐怖，它充满了陈年冻肉和翻不到尽头的腐烂蔬菜，早已无法清理。实验室的冰箱也不够充满条理。现在我拥有了明亮澄净的冰箱。突然获得了——冰箱。更便捷的生存环境，也带来了一些通勤的麻烦，但更隐私、更安全，我走进这里的时候就在心里说道，我想在此处生存并把这里维持得很好，我想。</p>
+<p>从做了决定到真正入住其实不到12个小时，这似乎是一个天赐的机会。因为它真的——看起来十分合适。经过共度了千辛万苦的搬家路途，短短三公里却没有终点一般，我坐在电动车后座上（16岁以上坐电动车违反交通规则，请不要学）。前排是我想要信赖的人，正带着一个行李箱艰难的操纵着方向。风在耳边雀跃呼啸，这是一片没有高楼和立交桥的应许之地。我们向前走，却难以左转，因为装有被褥的包裹会碰到喇叭的按键。每次左转都是来自风神的嘲讽，但那讥笑没有带来憎恶，我们也报之以笑容。就这样艰难的路途，一路来到没有电梯的楼下。行李箱里没什么东西，如此仓促，甚至暂时无法带走我的宠物，我却没有忘记放入两样东西——受过赐福的香薰蜡烛，和南美友人赠予的啤酒杯。</p>
+<p>今天是漫长的一天。我没有做工作，反而为了生活反复奔走。为什么是香薰蜡烛和啤酒杯？我叩问自己的灵魂，你怎么没想着带烧水的壶，而是先把这两样东西塞入了行李箱内呢？看起来似乎没什么作用，平添半分重量，但是——</p>
+<p>生活还是需要享受的。可能我深爱着生活。在接近凌晨的时候，我打赏2元辛苦骑手爬到6楼，只为了获取让冰箱保持充裕的苏打水。在这个瞬间，我不再只是生存，我在生活，或者至少寻找生活。寻找享受，寻找娱乐，寻找自由。松弛……松弛。我像一根紧绷的弹簧，彻底无法找到生活里的片刻松弛。</p>
+<p>打完这段话的时候，几条微信又把我带回忙碌的工作里，没关系。刚刚酝酿出来的气氛就这样随风而去了。我是想说，自己终于有所松弛，脱离极端焦虑的环境，脱离以贩卖焦虑为乐的人，向内思考明天的生活。生活的第一步是迈出门去，踏上公交车，所以需要规划一下起床的时间。现在已经饿了，有没有可能早上吃到一份KFC早餐？我想，有很多选择。</p>
+<p>可能因为我一直打字，直到苯二氮卓起效——今天的我不是很有文采。所以……明天的我呢？我的生活正在走向何方呢？</p>
+
+        </div>
+
+        
+          <div class="post-container" style="margin-top: 2rem;">
+            <aside class="toc-container">
+              <button class="toc-toggle">Table of Contents</button>
+              <nav class="toc" id="toc"></nav>
+            </aside>
+          </div>
+        
+    </div>
+
+
+    <!-- Comments -->
+    
+    
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+  <style>
+    /* Waline skin: match the site's ink/cyber palette (gentle). */
+    .walineWrap{
+      background: rgba(0,0,0,.35);
+      border-color: rgba(77,255,255,.20);
+      box-shadow: 0 0 0 1px rgba(77,255,255,.12), 0 0 26px rgba(77,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    /* Waline v3 uses CSS vars. Override to avoid the default white panel look. */
+    #waline{
+      /* Waline vars (v3): keep contrast high enough on dark background */
+      --waline-bgcolor: transparent;
+      --waline-bgcolor-light: rgba(0,0,0,.28);
+      --waline-border-color: rgba(77,255,255,.22);
+      --waline-box-shadow: none;
+      --waline-theme-color: rgba(110,231,255,.95);
+      --waline-active-color: rgba(110,231,255,1);
+      --waline-color: rgba(248,250,255,.92);
+      --waline-info-color: rgba(248,250,255,.70);
+      --waline-sub-color: rgba(248,250,255,.78);
+      --waline-disable-bgcolor: rgba(255,255,255,.08);
+      --waline-disable-color: rgba(248,250,255,.45);
+      --waline-code-bgcolor: rgba(255,255,255,.08);
+      --waline-avatar-size: 44px;
+      --waline-font-size: 16px;
+    }
+    #waline a{ color: rgba(110,231,255,.95); }
+    #waline a:hover{ color: rgba(110,231,255,1); }
+
+    /* Force readable text in common Waline nodes (some themes set odd opacity). */
+    #waline, #waline *{ text-shadow: none; }
+    #waline .wl-card, #waline .wl-content, #waline .wl-content p,
+    #waline .wl-meta, #waline .wl-head, #waline .wl-nick{
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-time, #waline .wl-like, #waline .wl-reply, #waline .wl-count{
+      color: rgba(248,250,255,.66) !important;
+    }
+    /* Editor / inputs (make the post box feel like the site's glass-paper) */
+    #waline .wl-editor, #waline .wl-panel, #waline .wl-card{
+      background: rgba(0,0,0,.22) !important;
+      border: 1px solid rgba(110,231,255,.18) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    #waline textarea{
+      background: transparent !important;
+      color: rgba(248,250,255,.95) !important;
+      border: none !important;
+      border-radius: 14px !important;
+      outline: none !important;
+    }
+    #waline input{
+      background: rgba(0,0,0,.22) !important;
+      color: rgba(248,250,255,.95) !important;
+      border-color: rgba(110,231,255,.18) !important;
+      border-radius: 999px !important;
+    }
+    #waline input::placeholder, #waline textarea::placeholder{
+      color: rgba(248,250,255,.55) !important;
+    }
+
+    /* Submit button / actions */
+    #waline .wl-actions, #waline .wl-header{
+      background: transparent !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(110,231,255,.28) !important;
+      background: rgba(110,231,255,.10) !important;
+      color: rgba(248,250,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(110,231,255,.16) !important;
+      border-color: rgba(110,231,255,.42) !important;
+    }
+    #waline .wl-btn{
+      border-radius: 999px !important;
+      border-color: rgba(77,255,255,.28) !important;
+      background: rgba(77,255,255,.10) !important;
+      color: rgba(231,240,255,.92) !important;
+    }
+    #waline .wl-btn:hover{
+      background: rgba(77,255,255,.16) !important;
+      border-color: rgba(77,255,255,.40) !important;
+    }
+  </style>
+  <div class="max-w-4xl mx-auto my-10 px-2">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-hacker-color1 font-bold text-xl">Comments</h2>
+    </div>
+    <div id="waline" class="walineWrap border border-line-color rounded-2xl p-4"></div>
+  </div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#waline',
+      serverURL: 'https://waline.49.51.36.229.nip.io',
+      lang: 'en',
+      requiredMeta: [],
+    });
+  </script>
+
+
+
+
+    <!-- Back to home link -->
+    <div class="text-center my-8">
+        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
+    </div>
+
+      
+      <script src="/js/toc.js"></script>  <!-- TOC logic -->
+      
+      
+
+    <footer class="bg-black text-gray-400 py-4">
+ <div class="container mx-auto text-center">
+  <p>© <span id="current-year"></span>  Urizen_South 
+    <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+ </div>
+</footer>
+
+<script> 
+ document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+<script>
+window.MathJax = {
+tex: {
+  inlineMath: [['$', '$'], ['\\(', '\\)']]  // Enable $...$ and \( ... \)
+},
+svg: {
+  fontCache: 'global'
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<!-- busuanzi page view counter -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+</body>
+</html>
